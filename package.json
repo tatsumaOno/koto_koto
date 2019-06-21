@@ -1,5 +1,7 @@
 {
   "name": "koto_koto",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "uikit": "^3.1.6"
+  }
 }
