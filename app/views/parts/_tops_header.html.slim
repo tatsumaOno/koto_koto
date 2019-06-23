@@ -9,21 +9,23 @@
 							| Active
 						.uk-navbar-dropdown
 							ul.uk-nav.uk-navbar-dropdown-nav
-								li
-									= link_to signup_path do
-										| Sign up
-								li
-									= link_to root_path do
-										| Item
-								li.uk-nav-header
-									= link_to root_path do
-										| Header
-								li
-									= link_to root_path do
-										| TEST
-								li.uk-nav-divider
-									= link_to root_path do
-										| Item
+								- if logged_in?
+									li
+										= link_to login_path,method: :delete do
+											| Log out
+									li
+										= link_to current_user do
+											| Profile
+									li.uk-nav-divider
+										= link_to root_path do
+											| Item
+								- else
+									li
+										= link_to new_user_path do
+											| Sign up
+									li
+										= link_to login_path do
+											| Log in
 					li
 						= link_to root_path do
 							| Parent
