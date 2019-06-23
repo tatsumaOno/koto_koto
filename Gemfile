@@ -64,3 +64,4 @@ gem 'slim-rails'
 gem 'uikit-rails'
 gem 'jquery-rails' 
 gem "pry-rails"
+gem 'bcrypt'
