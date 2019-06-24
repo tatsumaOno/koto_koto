@@ -17,8 +17,8 @@
 										= link_to current_user do
 											| Profile
 									li.uk-nav-divider
-										= link_to root_path do
-											| Item
+										= link_to edit_user_path(current_user) do
+											| Setting
 								- else
 									li
 										= link_to new_user_path do
