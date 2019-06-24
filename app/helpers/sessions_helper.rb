@@ -38,4 +38,13 @@ module SessionsHelper
 		session.delete(:user_id)
 		@current_user = nil
 	end
+
+	def store_location
+		session[:forwarding_url] = request_original_url if request.get? #request_original_urlでリクエスト先を取得
+	end
+
+	def request_back_or(default)
+		redirect_to(session[:forwarding_url] || default)
+		session.delete(:forwarding_url)
+	end
 end
