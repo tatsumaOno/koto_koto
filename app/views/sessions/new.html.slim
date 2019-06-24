@@ -6,10 +6,12 @@ h1 Log in
 	= f.label :password
 	= f.password_field :password
 
-	= f.submit class: "ttt"
+	= f.label :remember_me do
+		= f.check_box :remember_me
+		span Remember me on this computer
+
+	= f.submit
 		| Log in
-	//classつけたとき
 	p 
 		| New user?
 		= link_to "Sign up now!",new_user_path
-	//共存
