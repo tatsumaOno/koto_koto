@@ -1,2 +1,10 @@
-h1 PasswordResets#new
-p Find me in app/views/password_resets/new.html.slim
+h1 Forgot Password
+= form_for(:password_reset,url:password_resets_path) do |f|
+	= f.label :email
+	= f.email_field :email
+
+	= f.submit
+		| Submit
+	p 
+		| New user?
+		= link_to "Sign up now!",new_user_path

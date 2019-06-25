@@ -1,2 +1,15 @@
-h1 PasswordResets#edit
-p Find me in app/views/password_resets/edit.html.slim
+h1 Reset Password
+
+= form_for(@user,url: password_reset_path(params[:id])) do |f|
+	= render 'parts/error_messages'
+
+	= hidden_field_tag :email,@user.email
+
+	= f.label :password
+	= f.password_field :password
+
+	= f.label :password_confirmation
+	= f.password_field :password_confirmation
+
+	= f.submit
+	 | Sign up
