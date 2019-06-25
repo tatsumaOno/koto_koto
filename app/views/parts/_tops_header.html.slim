@@ -11,7 +11,7 @@
 							ul.uk-nav.uk-navbar-dropdown-nav
 								- if logged_in?
 									li
-										= link_to login_path,method: :delete do
+										= link_to logout_path,method: :delete do
 											| Log out
 									li
 										= link_to current_user do
