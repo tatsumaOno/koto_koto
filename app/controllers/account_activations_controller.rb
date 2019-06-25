@@ -1,9 +1,10 @@
 class AccountActivationsController < ApplicationController
+	#有効化後
 	def edit
 		user = User.find_by(email: params[:email])
 		if user && !user.activated? && user.authenticated?(:activation,params[:id])
-			user.update_attribute(:activated, true)
-			user.update_attribute(:activated_at,Time.zone.now)
+			user.update_attribute(:activated, true) #有効化を許可
+			user.update_attribute(:activated_at,Time.zone.now) 
 			log_in user
 			redirect_to user
 		else
