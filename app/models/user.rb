@@ -28,9 +28,14 @@ class User < ApplicationRecord
 		update_attribute(:remember_digest,User.digest(remember_token))
 	end
 
-	def authenticated?(remember_token)
-		return false if remember_digest.nil?
-		BCrypt::Password.new(remember_digest).is_password?(remember_token)
+	# def authenticated?(remember_token)
+	# 	return false if remember_digest.nil?
+	# 	BCrypt::Password.new(remember_digest).is_password?(remember_token)
+	# end
+	def authenticated?(attribute,token)
+		digest = self.send("#{attribute}_digest") #send(:remember_digest)
+		return false if digest.nil?
+		BCrypt::Password.new(digest).is_password?(token)
 	end
 
 	def forget
