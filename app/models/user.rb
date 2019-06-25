@@ -1,16 +1,14 @@
 class User < ApplicationRecord
+
 	VALID_EMAIL_REGEX = /([\w+\-.]+)@[a-z\d]+\.[a-z]{2,3}/i
 	validates :name, presence: true,length: {maximum: 50}
 	validates :email,presence: true,length: {maximum: 255},format: {with: VALID_EMAIL_REGEX},uniqueness: true
 	validates :password,presence: true,length: {minimum: 6}
-
-	has_secure_password
-	#セキュアなパスワードを作成
-	#password_digestカラム
-	#gem bcrypt
+	has_secure_password #セキュアなパスワードを作成 password_digestカラム gem bcrypt
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
 	before_save :downcase_email
 	before_create :create_activation_digest
+
 
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
