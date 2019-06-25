@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-	before_save {self.email = email.downcase}
 	VALID_EMAIL_REGEX = /([\w+\-.]+)@[a-z\d]+\.[a-z]{2,3}/i
 	validates :name, presence: true,length: {maximum: 50}
 	validates :email,presence: true,length: {maximum: 255},format: {with: VALID_EMAIL_REGEX},uniqueness: true
@@ -9,7 +8,9 @@ class User < ApplicationRecord
 	#セキュアなパスワードを作成
 	#password_digestカラム
 	#gem bcrypt
-	attr_accessor :remember_token # 仮想の属性
+	attr_accessor :remember_token,:activation_token # 仮想の属性
+	before_save :downcase_email
+	before_create :create_activation_digest
 
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -34,5 +35,15 @@ class User < ApplicationRecord
 
 	def forget
 		update_attribute(:remember_digest,nil)
+	end
+
+private
+	def create_activation_digest
+		self.activation_token = User.new_token
+		self.activation_digest = User.digest(activation_token)
+	end
+
+	def downcase_email
+		self.email = email.downcase
 	end
 end
