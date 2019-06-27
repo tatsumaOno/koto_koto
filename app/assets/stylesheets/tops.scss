@@ -85,9 +85,9 @@
 
 //concept
 .concept{
-	margin: 50px 0;
+	margin: 50px 0 0 ;
 	width: 100%;
-	height: 700px;
+	height: 600px;
 	text-align: center;
 	&__images{
 		width: 80%;
@@ -108,7 +108,12 @@
 		}
 	}
 }
-
+.border-icon{
+	margin-bottom: 50px;
+	font-size: 30px;
+	text-align: center;
+	color: #22B8CF;
+}
 //top-service-index
 .card-list{
 	margin-bottom: 50px;
