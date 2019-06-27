@@ -1,0 +1,8 @@
+@mixin button($color:rgba(0,0,0,0)){
+	display: block;
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	background-color: $color;
+	color: #000000;
+}
