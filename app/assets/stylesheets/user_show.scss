@@ -1,0 +1,80 @@
+@import "mixin";
+.mypage{
+	margin-top: 50px;
+	&_sec{
+		&_r{
+			&_icon{
+				border-bottom: 1px solid rgba(0,0,0,0.6);
+				img{
+					width: 80%;
+					max-height: 280px;
+					border-radius: 10px;
+					border: 1px solid #000;
+				}
+				p{
+					font-size: 25px;
+				}
+			}
+			&_introduction{
+				@include side_border;
+				height: 150px;
+				word-wrap: break-word;
+			}
+			&_edit{
+				@include side_border;				
+			}
+			&_point{
+				@include side_border;				
+				h6,p{
+					margin: 5px 0;
+				}
+			}
+		}
+		&_l{
+			&_score{
+				height: 280px;
+			}
+			&_tags{
+				display: flex;
+				justify-content: space-between;
+				a{
+					text-align: center;
+					width: calc(100% / 3);
+					height: 50px;
+					line-height: 50px;
+					padding: 10px;
+					color: #000;
+					&:hover{
+						background-color: #D3D3D3;
+						border-top: 3px solid rgb(255, 215, 0);
+						text-decoration: none;
+					}
+				}
+			}
+			.tag-active{
+				background-color: #D3D3D3;
+				border-top: 3px solid rgb(255, 215, 0);
+			}
+			&_tablelist{
+				article{
+					display: flex;
+					padding: 10px 10px 15px 10px;
+					border-bottom: 1px solid #D3D3D3;
+					img{
+						width: 48px;
+						height: 48px;
+						margin-right: 10px;
+					}
+					.article_body{
+						&_info{
+							p{
+								margin: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

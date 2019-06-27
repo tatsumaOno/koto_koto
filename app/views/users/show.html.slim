@@ -1,3 +1,46 @@
-= current_user.name
-= current_user.email
-//delete 10.4.2
+.mypage.uk-container
+	.mypage_sec.uk-grid.uk-flex-center
+		.mypage_sec_r.uk-width-1-3
+			.mypage_sec_r_icon
+				= image_tag("user_default.jpeg")
+				p
+					= current_user.name
+			.mypage_sec_r_introduction
+				p testtesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestestea
+			.mypage_sec_r_edit
+				= link_to "プロフィールを編集する",edit_user_path(current_user)
+			.mypage_sec_r_point
+				h6 所持ポイント
+				p 50pt
+		.mypage_sec_l.uk-width-2-3
+			.mypage_sec_l_score
+				p score
+			.mypage_sec_l_tags
+				= link_to root_path,class: "tag tag-active" do
+					span リクエスト
+				= link_to root_path,class: "tag" do
+					span コメント
+				= link_to root_path,class: "tag" do
+					span チャットORスキル
+			.mypage_sec_l_tablelist
+				article
+					= image_tag("art-4282328_640.jpg")
+					.article_body
+						.article_body_info
+							p aaaaaaaaaaaa
+						.article_body_title
+							= link_to "タイトル",root_path
+				article
+					= image_tag("art-4282328_640.jpg")
+					.article_body
+						.article_body_info
+							p aaaaaaaaaaaa
+						.article_body_title
+							= link_to "タイトル",root_path
+				article
+					= image_tag("art-4282328_640.jpg")
+					.article_body
+						.article_body_info
+							p aaaaaaaaaaaa
+						.article_body_title
+							= link_to "タイトル",root_path
