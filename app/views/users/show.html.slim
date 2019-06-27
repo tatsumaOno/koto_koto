@@ -8,7 +8,9 @@
 			.mypage_sec_r_introduction
 				p testtesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestestea
 			.mypage_sec_r_edit
-				= link_to "プロフィールを編集する",edit_user_path(current_user)
+				= link_to edit_user_path(current_user) do
+					i.far.fa-address-card
+					| プロフィールを編集する	
 			.mypage_sec_r_point
 				h6 所持ポイント
 				p 50pt

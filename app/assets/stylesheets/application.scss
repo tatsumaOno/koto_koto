@@ -11,10 +11,12 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "uikit/src/scss/variables-theme.scss";
- @import "uikit/src/scss/mixins-theme.scss";
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
 @import "uikit/src/scss/uikit-theme.scss";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 @import "tops";
 @import "mixin";
 @import "registration.scss";
-@import "user_show"
+@import "user_show";
