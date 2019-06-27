@@ -56,6 +56,33 @@
 	}
 }
 
+//Registration_header
+.uk-navbar-nav{
+	li{
+		margin-right: 10px;
+	}
+	.roll-button{
+		background-color: #000;
+		border-radius: 50%;
+		color: rgba(0, 0, 0,0.7);
+		&:hover{
+			color: rgba(0, 0, 0,1);
+			font-weight: bold;
+		}
+	}
+	.button_red{
+		background-color: rgba(255,0,0,0.9);
+		letter-spacing: 3px;
+	}
+	.button_yellow{
+		background-color: rgba(255,255,0,0.9);
+	}
+	.button_green{
+		background-color: rgba(0,128,0,0.9);
+	}
+}
+
+
 //concept
 .concept{
 	margin: 50px 0;
