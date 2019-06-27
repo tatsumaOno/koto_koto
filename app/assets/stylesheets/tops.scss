@@ -59,10 +59,10 @@
 	height: 700px;
 	text-align: center;
 	&__images{
-
 		width: 80%;
 		margin: 80px auto 0;
 		display: flex;
+		justify-content: space-between;
 		&__section{
 			figure{
 				img{
@@ -77,6 +77,49 @@
 		}
 	}
 }
+
+//top-service-index
+.card-list{
+	margin-bottom: 50px;
+	h2{
+		text-align: center;
+	}
+	.uk-child-width-1-4{
+		width: 80%;
+		margin: 0 auto;
+		.uk-card{
+			width: 23%;
+			margin: 10px;
+			&-media-top{
+				img{
+					width: 100%;
+					height: 150px;
+				}
+			}
+			&-body{
+				a{
+					word-wrap: break-word;
+					font-size: 15px;
+					font-weight: bold;
+					display: inline-block;
+					height: 60px;
+				}
+				&-text{
+					display: flex;
+					margin-top: 30px;
+					justify-content: space-between;
+					p{
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		.uk-card-default{
+			padding: 0;
+		}
+	}
+}
+
 
 //footer
 .footer__copyright{
