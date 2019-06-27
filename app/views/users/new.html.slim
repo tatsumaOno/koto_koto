@@ -1,18 +1,25 @@
-h1 Sing up
-p Find me in app/views/users/new.html.slim
-= form_for @user do |f|
-	= render 'parts/error_messages'
-	= f.label :name
-	= f.text_field :name
-
-	= f.label :email
-	= f.email_field :email
-
-	= f.label :password
-	= f.password_field :password
-
-	= f.label :password_confirmation
-	= f.password_field :password_confirmation
-
-	= f.submit
-	 | Sign up
+= render partial: 'parts/registration_header'
+.form_wrapper
+	h2 新規会員登録
+	.form_design
+		= form_for @user do |f|
+			= render 'parts/error_messages'
+			.field
+				= f.label :name
+				br
+				=f.text_field :name
+			.field
+				= f.label :email
+				br
+				= f.email_field :email, autofocus: true
+			.field
+				= f.label :password
+				br
+				= f.password_field :password
+			.field
+				= f.label :password_confirmation
+				br
+				= f.password_field :password_confirmation
+			.actions
+				= f.submit "新規登録",class: "button"
+= render partial: 'parts/footer'
