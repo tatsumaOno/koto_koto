@@ -1,3 +1,4 @@
+= render partial: 'parts/registration_header'
 .form_wrapper
 	h2 新規会員登録
 	.form_design
@@ -21,3 +22,4 @@
 				= f.password_field :password_confirmation
 			.actions
 				= f.submit "新規登録",class: "button"
+= render partial: 'parts/footer'
