@@ -18,3 +18,39 @@
 	-webkit-transform: translateY(-50%) translateX(-50%);
 	margin: auto;
 }
+@mixin card_list4($width: 100%,$size: 23%){
+	.uk-child-width-1-4{
+		width: $width;
+		margin: 0 auto;
+		.uk-card{
+			width: $size;
+			margin: 10px;
+			&-media-top{
+				img{
+					width: 100%;
+					height: 150px;
+				}
+			}
+			&-body{
+				a{
+					word-wrap: break-word;
+					font-size: 15px;
+					font-weight: bold;
+					display: inline-block;
+					height: 60px;
+				}
+				&-text{
+					display: flex;
+					margin-top: 30px;
+					justify-content: space-between;
+					p{
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		.uk-card-default{
+			padding: 0;
+		}
+	}
+}
