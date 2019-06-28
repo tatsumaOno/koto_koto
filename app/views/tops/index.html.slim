@@ -1,4 +1,7 @@
 = render partial: 'parts/tops_header'
-= render partial: 'parts/concept'
+- if logged_in?
+	= render partial: 'parts/index_category'
+- else
+	= render partial: 'parts/concept'
 = render partial: 'parts/tops_list'
 = render partial: 'parts/footer'

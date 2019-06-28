@@ -94,13 +94,15 @@
 	}
 	.button_red{
 		background-color: rgba(255,0,0,0.9);
-		letter-spacing: 3px;
 	}
 	.button_yellow{
 		background-color: rgba(255,255,0,0.9);
 	}
 	.button_green{
 		background-color: rgba(0,128,0,0.9);
+	}
+	.button_edit{
+		padding: 0 30px;
 	}
 }
 
@@ -142,42 +144,64 @@
 	h2{
 		text-align: center;
 	}
-	.uk-child-width-1-4{
-		width: 80%;
-		margin: 0 auto;
-		.uk-card{
-			width: 23%;
-			margin: 10px;
-			&-media-top{
-				img{
-					width: 100%;
-					height: 150px;
-				}
-			}
-			&-body{
-				a{
-					word-wrap: break-word;
-					font-size: 15px;
+	@include card_list4(80%,23%);
+}
+
+//top-category-index
+.category_wrapper{
+	margin: 40px auto;
+	&_sidebar{
+		&_cat{
+			&_title{
+				display: flex;
+				h3{
+					margin: 0;
+					font-size: 20px;
 					font-weight: bold;
-					display: inline-block;
-					height: 60px;
 				}
-				&-text{
+				.fa-bars{
+					font-size: 25px;
+					margin-right: 10px;
+					color: #a1a1a1;
+				}
+				
+			}
+			ul{
+				list-style-type: none;
+				padding: 0;
+				li{
 					display: flex;
-					margin-top: 30px;
 					justify-content: space-between;
-					p{
-						margin-bottom: 0;
+					padding: 10px 0;
+					border-bottom: 1px solid #D3D3D3;
+					a{
+						color: #8f8f8f;
+					}
+					.fa-chevron-right{
+						line-height: 25px;
+						color: #a1a1a1;
 					}
 				}
 			}
 		}
-		.uk-card-default{
-			padding: 0;
+		&_main{
+			h5{
+				font-weight: bold;
+			}
+			&_page{
+				display: flex;
+				justify-content: space-between;
+				.page_left{
+					font-size: 12px;
+				}
+			}
+			@include card_list4(100%,22%);
+			.uk-card-body{
+				padding: 5px;
+			}
 		}
 	}
 }
-
 
 //footer
 .footer__copyright{
