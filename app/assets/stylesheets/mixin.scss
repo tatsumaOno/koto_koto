@@ -10,3 +10,11 @@
 	padding: 10px 0;
 	border-bottom: 1px solid rgba(0,0,0,0.6);
 }
+@mixin head_center($top: 0,$left: 0){
+	top: $top;
+	left: $left;
+	position: absolute;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	margin: auto;
+}

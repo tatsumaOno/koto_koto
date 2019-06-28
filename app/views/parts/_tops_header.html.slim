@@ -50,5 +50,11 @@
 		h1 助けあいアプリ
 		p 日々の小さな悩みを助け合うアプリです。
 		.header-contents__buttons
-			= link_to "ログイン",login_path,class: "header-contents__buttons__login"
-			= link_to "新規登録",new_user_path,class: "header-contents__buttons__registration"
+			- if logged_in?
+				= form_with url: login_path do |f|
+					= f.text_field :keyword,placeholder: "検索する",class: "header-contents__buttons__search"
+					= button_tag type: "submit",class: "header-contents__buttons__search__button" do
+						i.fa.fa-search
+			- else
+				= link_to "ログイン",login_path,class: "header-contents__buttons__login"
+				= link_to "新規登録",new_user_path,class: "header-contents__buttons__registration"
