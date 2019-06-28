@@ -8,7 +8,6 @@
 		display: block;
  		opacity: .6;
 	}
-	position:relative;
 	//修正箇所
 	.nav-color{
 		color: rgba(0, 0, 0,0.7) !important;
@@ -18,13 +17,10 @@
 	}
 	//
 	.header-contents{
-		position: absolute;
-		top: 33%;
-		left: 40%;
+		@include head_center(50%,50%);
 		h1{	
 			font-size: 40px;
 			letter-spacing: 4px;
-			text-align: center;
 			font-weight: bold;
 			color: #ffffff;
 		}
@@ -51,6 +47,32 @@
 					text-decoration: none;
 					font-weight: bold;
 				}
+			}
+			&__search{
+				@include head_center(80%,40%);
+				width: 550px;
+				height: 50px;
+				font-size: 20px;
+				outline: none;
+				&__button{
+					@include head_center(80%,145%);
+					width: 30%;
+					min-height: 50px;
+					line-height: 50px;
+					background-color: rgba(255,255,0,0.9);
+					border:none;
+					outline: none;
+					&:hover{
+						background-color: rgba(255,255,0,1);
+						cursor: pointer;
+					}
+					.fa-search{
+						line-height: 50px;
+						font-size: 20px;
+						width: 30px;
+					}
+				}
+				
 			}
 		}
 	}
@@ -85,9 +107,9 @@
 
 //concept
 .concept{
-	margin: 50px 0 0 ;
+	margin: 50px 0 30px ;
 	width: 100%;
-	height: 600px;
+	height: 500px;
 	text-align: center;
 	&__images{
 		width: 80%;
