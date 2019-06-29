@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
-  before_action :get_user,only: [:show,:edit,:update]
   before_action :logged_in_user,only: [:edit,:update] 
-  before_action :correct_user,only: [:edit,:update]
+  before_action :correct_user,only: [:show,:edit,:update]
 
   def new
     @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(new_user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       #有効化
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(edit_user_params)
       redirect_to @user
     else
       render :edit
@@ -35,12 +34,12 @@ class UsersController < ApplicationController
 
   private
 
-    def get_user
-      @user = User.find(params[:id])
+    def new_user_params
+      params.require(:user).permit(:name,:nickname,:email,:password,:password_confirmation)
     end
 
-    def user_params
-      params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    def edit_user_params
+      params.require(:user).permit(:name,:nickname,:email,:introduction)
     end
 
     def logged_in_user

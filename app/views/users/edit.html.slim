@@ -9,16 +9,21 @@
 				.mypage_sec_edit_form.uk-width-1-1
 					.mypage_sec_edit_form_nickname.uk-width-1-2
 						= f.label :ニックネーム
-						= f.text_field :name
+						= f.text_field :nickname
+						small 30文字以内
 					.mypage_sec_edit_form_email.uk-width-1-2
 						= f.label :メールアドレス
 						= f.email_field :email
 				.mypage_sec_edit_form
 					.mypage_sec_edit_form_introduction.uk-width-1-1
 						= f.label :自己紹介
-						= f.text_area :password
+						= f.text_area :introduction
+						small 200文字以内
 				.mypage_sec_edit_form
-					.mypage_sec_edit_form_name.uk-width-2-3
+					.mypage_sec_edit_form_name.uk-width-1-2
 						= f.label :名前
 						= f.text_field :name
-				= f.submit "変更",class: "edit_button"
+				.mypage_sec_edit_form
+					.mypage_sec_edit_form_button
+						= f.submit "保存する",class: "mypage_sec_edit_form_button_submit"
+= render partial: 'parts/footer'
