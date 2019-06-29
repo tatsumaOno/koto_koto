@@ -1,15 +1,15 @@
-h1 Reset Password
+= render partial: 'parts/registration_header'
+.password_reset
+	.password_reset_title
+		span
+			i.fas.fa-unlock-alt
+		h1 パスワード設定
+	= form_for(@user,url: password_reset_path(params[:id])) do |f|
+		.password_reset_form
+			= f.label :password
+			= f.password_field :password
 
-= form_for(@user,url: password_reset_path(params[:id])) do |f|
-	= render 'parts/error_messages'
-
-	= hidden_field_tag :email,@user.email
-
-	= f.label :password
-	= f.password_field :password
-
-	= f.label :password_confirmation
-	= f.password_field :password_confirmation
-
-	= f.submit
-	 | Sign up
+			= f.label :password_confirmation
+			= f.password_field :password_confirmation
+		= f.submit "保存する",class: "password_reset_button"
+= render partial: 'parts/footer'

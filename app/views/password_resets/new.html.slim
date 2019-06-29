@@ -5,7 +5,7 @@
 			i.fas.fa-unlock-alt
 		h1 パスワード変更
 	= form_for(:password_reset,url:password_resets_path) do |f|
-		.password_reset_email
+		.password_reset_form
 			= f.label :email
 			= f.email_field :email
 		= f.submit "パスワードリセットメールを送信",class: "password_reset_button"
