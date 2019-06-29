@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_28_162339) do
+ActiveRecord::Schema.define(version: 2019_06_29_080630) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_06_28_162339) do
     t.datetime "reset_sent_at"
     t.integer "point"
     t.integer "score"
+    t.text "introduction"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

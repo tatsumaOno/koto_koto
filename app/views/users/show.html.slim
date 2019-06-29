@@ -7,9 +7,11 @@
 			.mypage_sec_r_icon
 				= image_tag("user_default.jpeg")
 				p
-					= current_user.name
+					= current_user.nickname
 			.mypage_sec_r_introduction
-				p testtesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestesteatesttesttestestea
+				h6 自己紹介
+				p 
+					= current_user.introduction
 			.mypage_sec_r_edit
 				= link_to edit_user_path(current_user) do
 					i.far.fa-address-card
@@ -49,3 +51,4 @@
 							p aaaaaaaaaaaa
 						.article_body_title
 							= link_to "タイトル",root_path
+= render partial: 'parts/footer'
