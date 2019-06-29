@@ -2,6 +2,7 @@
 .mypage{
 	margin-top: 50px;
 	&_sec{
+		@include category_sidebar();
 		&_r{
 			&_icon{
 				border-bottom: 1px solid rgba(0,0,0,0.6);
@@ -31,6 +32,7 @@
 			}
 		}
 		&_l{
+			margin-top: 10px;
 			&_score{
 				height: 280px;
 			}

@@ -1,0 +1,30 @@
+.mypage_sec_cat.uk-width-1-5
+			.mypage_sec_cat_title
+			ul
+				li 
+					= link_to "マイページ",current_user
+					i.fas.fa-chevron-right
+				li 
+					= link_to "悩み事をだす",root_path
+					i.fas.fa-chevron-right
+				li 
+					= link_to "スキルをだす",root_path
+					i.fas.fa-chevron-right
+				li 
+					= link_to "プロフィール編集",edit_user_path(current_user)
+					i.fas.fa-chevron-right
+				li 
+					= link_to "クレジット",root_path
+					i.fas.fa-chevron-right
+				li 
+					= link_to "パスワード変更",root_path
+					i.fas.fa-chevron-right
+				li 
+					= link_to "ログアウト",logout_path,method: :delete
+					i.fas.fa-chevron-right
+				li 
+					= link_to "テスト1",root_path
+					i.fas.fa-chevron-right
+				li 
+					= link_to "テスト2",root_path
+					i.fas.fa-chevron-right
