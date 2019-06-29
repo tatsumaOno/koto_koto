@@ -1,10 +1,12 @@
-h1 Forgot Password
-= form_for(:password_reset,url:password_resets_path) do |f|
-	= f.label :email
-	= f.email_field :email
-
-	= f.submit
-		| Submit
-	p 
-		| New user?
-		= link_to "Sign up now!",new_user_path
+= render partial: 'parts/registration_header'
+.password_reset
+	.password_reset_title
+		span
+			i.fas.fa-unlock-alt
+		h1 パスワード変更
+	= form_for(:password_reset,url:password_resets_path) do |f|
+		.password_reset_email
+			= f.label :email
+			= f.email_field :email
+		= f.submit "パスワードリセットメールを送信",class: "password_reset_button"
+= render partial: 'parts/footer'
