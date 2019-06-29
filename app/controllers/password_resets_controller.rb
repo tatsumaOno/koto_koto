@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
     if params[:user][:password].empty?
       @user.errors.add(:password,:blank)
       render :edit
-    elsif @user.update_attributes(user_params)
+    elsif @user.update_attributes(reset_params)
       log_in @user
       redirect_to @user
     else
@@ -34,7 +34,7 @@ class PasswordResetsController < ApplicationController
 
   private
 
-    def user_params
+    def reset_params
       params.require(:user).permit(:password,:password_confirmation)
     end
 
