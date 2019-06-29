@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       #有効化
+      flash[:warning] = "メールをご確認して有効にしてください"
       redirect_to root_path
     else
       render :new
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(edit_user_params)
+      flash[:success] = "ユーザー情報を更新しました"
       redirect_to @user
     else
       render :edit
