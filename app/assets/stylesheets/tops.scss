@@ -151,39 +151,7 @@
 .category_wrapper{
 	margin: 40px auto;
 	&_sidebar{
-		&_cat{
-			&_title{
-				display: flex;
-				h3{
-					margin: 0;
-					font-size: 20px;
-					font-weight: bold;
-				}
-				.fa-bars{
-					font-size: 25px;
-					margin-right: 10px;
-					color: #a1a1a1;
-				}
-				
-			}
-			ul{
-				list-style-type: none;
-				padding: 0;
-				li{
-					display: flex;
-					justify-content: space-between;
-					padding: 10px 0;
-					border-bottom: 1px solid #D3D3D3;
-					a{
-						color: #8f8f8f;
-					}
-					.fa-chevron-right{
-						line-height: 25px;
-						color: #a1a1a1;
-					}
-				}
-			}
-		}
+		@include category_sidebar();
 		&_main{
 			h5{
 				font-weight: bold;

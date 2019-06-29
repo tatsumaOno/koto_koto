@@ -1,7 +1,9 @@
 @import "mixin";
 .mypage{
-	margin-top: 50px;
+	margin: 50px auto;
 	&_sec{
+		@include category_sidebar();
+		//mypage
 		&_r{
 			&_icon{
 				border-bottom: 1px solid rgba(0,0,0,0.6);
@@ -31,6 +33,7 @@
 			}
 		}
 		&_l{
+			margin-top: 10px;
 			&_score{
 				height: 280px;
 			}
@@ -70,6 +73,69 @@
 							p{
 								margin: 0;
 							}
+						}
+					}
+				}
+			}
+		}
+		//profile_edit
+		&_edit{
+			img{
+				width: 200px;
+				height: 200px;
+				display: block;
+				margin: 0 auto;
+				border: solid 1px #000;
+				border-radius: 50%;
+			}
+			&_form{
+				width: 90%;
+				margin: 40px auto 40px;
+				display: flex;
+				label{
+					display:block;
+					font-size: 12px;
+				}
+				small{
+					display: block;
+					font-size: 10px;
+				}
+				&_nickname,&_email,&_name{
+					input{
+						margin: 5px 0;
+						width: 90%;
+						height: 40px;
+						font-size: 15px;
+						border: solid 2px #d3d3d3;
+						border-radius: 10px;
+						outline: none;
+					}
+				}
+				&_introduction{
+					textarea{
+						width: 95%;
+						height: 150px;
+						font-size: 20px;
+						border-radius: 10px;
+						border: solid 2px #d3d3d3;
+						outline: none;
+					}
+				}
+				&_button{
+					width: 20%;
+					margin: 0 0 0 auto;
+					&_submit{
+						display       : inline-block;
+						border-radius : 10px;
+						font-size     : 12pt;
+						text-align    : center;
+						cursor        : pointer;
+						padding       : 15px 25px;
+						background    : rgba(68, 199, 154,0.8);
+						color         : #ffffff;
+						line-height   : 1em;
+						&:hover{
+						background    : rgba(68, 199, 154,1);
 						}
 					}
 				}

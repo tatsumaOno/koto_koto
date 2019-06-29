@@ -1,18 +1,29 @@
-h1 Edit User
-p Find me in app/views/users/edit.html.slim
-= form_for @user do |f|
-	= render 'parts/error_messages'
-	= f.label :name
-	= f.text_field :name
-
-	= f.label :email
-	= f.email_field :email
-
-	= f.label :password
-	= f.password_field :password
-
-	= f.label :password_confirmation
-	= f.password_field :password_confirmation
-
-	= f.submit
-	 | Save changes
+= render partial: 'parts/registration_header'
+.mypage.uk-container
+	.mypage_sec.uk-grid.uk-flex-center
+		= render partial: 'parts/user_sidebar'
+		.mypage_sec_edit.uk-width-4-5
+			= image_tag("user_default.jpeg")
+			= form_for @user do |f|
+				= render 'parts/error_messages'
+				.mypage_sec_edit_form.uk-width-1-1
+					.mypage_sec_edit_form_nickname.uk-width-1-2
+						= f.label :ニックネーム
+						= f.text_field :nickname
+						small 30文字以内
+					.mypage_sec_edit_form_email.uk-width-1-2
+						= f.label :メールアドレス
+						= f.email_field :email
+				.mypage_sec_edit_form
+					.mypage_sec_edit_form_introduction.uk-width-1-1
+						= f.label :自己紹介
+						= f.text_area :introduction
+						small 200文字以内
+				.mypage_sec_edit_form
+					.mypage_sec_edit_form_name.uk-width-1-2
+						= f.label :名前
+						= f.text_field :name
+				.mypage_sec_edit_form
+					.mypage_sec_edit_form_button
+						= f.submit "保存する",class: "mypage_sec_edit_form_button_submit"
+= render partial: 'parts/footer'

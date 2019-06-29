@@ -6,10 +6,12 @@
 	background-color: $color;
 	color: #000000;
 }
+
 @mixin side_border(){
 	padding: 10px 0;
 	border-bottom: 1px solid rgba(0,0,0,0.6);
 }
+
 @mixin head_center($top: 0,$left: 0){
 	top: $top;
 	left: $left;
@@ -18,6 +20,7 @@
 	-webkit-transform: translateY(-50%) translateX(-50%);
 	margin: auto;
 }
+
 @mixin card_list4($width: 100%,$size: 23%){
 	.uk-child-width-1-4{
 		width: $width;
@@ -51,6 +54,42 @@
 		}
 		.uk-card-default{
 			padding: 0;
+		}
+	}
+}
+
+@mixin category_sidebar(){
+	&_cat{
+		&_title{
+			display: flex;
+			h3{
+				margin: 0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.fa-bars{
+				font-size: 25px;
+				margin-right: 10px;
+				color: #a1a1a1;
+			}
+			
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+			li{
+				display: flex;
+				justify-content: space-between;
+				padding: 10px 0;
+				border-bottom: 1px solid #D3D3D3;
+				a{
+					color: #8f8f8f;
+				}
+				.fa-chevron-right{
+					line-height: 25px;
+					color: #a1a1a1;
+				}
+			}
 		}
 	}
 }
