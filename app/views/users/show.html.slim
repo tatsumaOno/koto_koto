@@ -1,7 +1,9 @@
 = render partial: 'parts/registration_header'
 .mypage.uk-container
 	.mypage_sec.uk-grid.uk-flex-center
-		.mypage_sec_r.uk-width-1-3
+		= render partial: 'parts/user_sidebar'
+		.mypage_sec_r.uk-width-1-5
+			h5 マイページ
 			.mypage_sec_r_icon
 				= image_tag("user_default.jpeg")
 				p
@@ -15,7 +17,7 @@
 			.mypage_sec_r_point
 				h6 所持ポイント
 				p 50pt
-		.mypage_sec_l.uk-width-2-3
+		.mypage_sec_l.uk-width-3-5
 			.mypage_sec_l_score
 				p score
 			.mypage_sec_l_tags
