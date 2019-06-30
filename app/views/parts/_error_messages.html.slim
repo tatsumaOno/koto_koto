@@ -1,6 +1,6 @@
 - if @user.errors.any?
 	#error_explanation
-		.alert.alert-danger #{@user.errors.count} error
+		.alert.alert-danger #{@user.errors.count} つエラーがあります
 		ul
 			- @user.errors.full_messages.each do |msg|
 				li

@@ -14,7 +14,9 @@
 }
 #error_explanation{
 	width: 90%;
-	background-color: 
+	background-color: rgba(255, 79, 80,0.2);
+	border: 3px solid #FF0000;
+	border-radius: 10px;
 	margin: 40px auto;
 	.alert-danger{
 
