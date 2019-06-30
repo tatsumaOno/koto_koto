@@ -11,9 +11,10 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest 
       @user.send_password_reset_email 
-      flash[:warning] = "パスワードリセットメールを送りました。ご確認ください"
+      flash[:warning] = "パスワードリセットメールを送りました。ご確認ください。"
       redirect_to root_path
     else
+      flash.now[:danger] = '無効なメールアドレスです'
       render :new
     end
   end

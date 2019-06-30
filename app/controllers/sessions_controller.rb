@@ -16,6 +16,9 @@ class SessionsController < ApplicationController
         flash[:alert] = "アカウントを有効化してください"
         redirect_to root_path
       end
+    else
+      flash.now[:danger] = '無効なメールアドレスとパスワードの組み合わせです'
+      render 'new'
     end
   end
   
