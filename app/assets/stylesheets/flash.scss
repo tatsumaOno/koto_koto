@@ -1,0 +1,22 @@
+//flash
+.uk-alert{
+	margin: 0;
+}
+//errors_message
+.field_with_errors{
+	input,textarea{
+		border: 1px solid red !important;
+		&:focus{
+			border-bottom: 1px solid red;
+			box-shadow: none !important;
+		}
+	}
+}
+#error_explanation{
+	width: 90%;
+	background-color: 
+	margin: 40px auto;
+	.alert-danger{
+
+	}
+}
