@@ -6,7 +6,10 @@
 		.mypage_sec_r.uk-width-1-5
 			h5 マイページ
 			.mypage_sec_r_icon
-				= image_tag("user_default.jpeg")
+				- if current_user.image.attached?
+					= image_tag(current_user.image)
+				- else
+					= image_tag("user_default.jpeg")
 				p
 					= current_user.nickname
 			.mypage_sec_r_introduction
