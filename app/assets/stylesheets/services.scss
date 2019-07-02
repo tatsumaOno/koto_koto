@@ -1,3 +1,61 @@
-// Place all the styles related to the services controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixin";
+.service{
+	width: 85%;
+	margin: 50px auto;
+	&_title{
+		margin-left: 80px;
+		border-bottom: 3px solid rgba(68, 199, 154,1);
+		h2{
+			color: #6B6B6B;
+			font-size: 40px;
+		}
+	}
+	&_page{
+		&_r{
+			margin: 0 auto;
+			&_form{
+				h4{
+					color: #6B6B6B;
+					border-bottom: 1px solid #6B6B6B;
+					padding-bottom: 10px;
+					margin: 50px 0 20px 0;
+				}
+				&_image{
+					height: 300px;
+					label{
+						position: relative;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						height: 300px;
+						width: 100%;
+						background-color: #D3D3D3;
+						cursor: pointer;
+						.fa-file-image{
+							font-size: 50px;
+						}
+					}
+					input{
+						display: none;
+					}
+				}
+				&_title,&_price{
+					input{
+						@include form_shape();
+					}
+				}
+				&_detail{
+					textarea{
+						@include textarea_shape(100%,300px);
+					}
+				}
+				&_time{
+					margin-bottom: 20px;
+					input{
+						@include form_shape();
+					}
+				}
+			}
+		}
+	}
+}
