@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'services/new'
   get 'password_resets/new'
   get 'password_resets/edit'
   root 'tops#index'
