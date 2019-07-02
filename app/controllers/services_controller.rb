@@ -1,10 +1,10 @@
 class ServicesController < ApplicationController
 
-  def request #悩み
+  def demand #悩み
     @service = Service.new()
   end
 
-  def skills
+  def supply
     @service = Service.new()
   end
 end
