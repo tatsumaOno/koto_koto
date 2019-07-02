@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users
   resources :services do
     collection do
-      get :demand
-      get :supply
+      get :request
+      get :skills
     end
   end
   resources :account_activations,only: [:edit]
