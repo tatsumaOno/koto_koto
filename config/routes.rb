@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   root 'tops#index'
   resources :users
+  resources :services do
+    collection do
+      get :demand
+      get :supply
+    end
+  end
   resources :account_activations,only: [:edit]
   resources :password_resets,only: [:new,:create,:edit,:update]
   get '/login',to: 'sessions#new'

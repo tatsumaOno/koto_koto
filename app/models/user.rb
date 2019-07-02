@@ -9,6 +9,7 @@ class User < ApplicationRecord
 	validates :introduction,length: {maximum: 200}
 	has_secure_password #セキュアなパスワードを作成 password_digestカラム gem bcrypt
 	has_one_attached :image #activeStorage
+	has_many :services
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
 	before_save :downcase_email
 	before_create :create_activation_digest
