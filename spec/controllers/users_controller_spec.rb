@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 describe UsersController do
-	let(:user) {create(:user)}
+	before do
+		@user = create(:user)
+	end
 	describe "GET new" do
 		it "newページへ" do
 			get :new

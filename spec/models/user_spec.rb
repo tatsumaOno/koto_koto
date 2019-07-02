@@ -1,37 +1,46 @@
 require 'rails_helper' 
 describe User do
 	describe '#create' do
+		before do
+			@user = User.new(
+					name: "test10",
+					nickname: "test10nick",
+					email: "test10@gmail.com",
+					password: "1234567",
+					password_confirmation: "1234567",
+					activated: "1")
+		end
 		context "名前" do
 			it "名前なし" do
-				user = build(:user,name: "")
-				user.valid?
-				expect(user.errors[:name]).to include("を入力してください")
+				@user.name = ""
+				@user.valid?
+				expect(@user.errors[:name]).to include("を入力してください")
 			end 
 			it "名前が50文字以上" do
-				user = build(:user,name: "a"*51)
-				user.valid?
-				expect(user.errors[:name]).to include("は50文字以内で入力してください")
+				@user.name = 'a'*51
+				@user.valid?
+				expect(@user.errors[:name]).to include("は50文字以内で入力してください")
 			end
 			it "名前が50文字以下" do
-				user = build(:user,name: "a"*50)
-				expect(user).to be_valid
+				@user.name = 'a'*50
+				expect(@user).to be_valid
 			end
 		end
 
 		context "メールアドレス" do
 			it "アドレスなし" do
-				user = build(:user,email: "")
-				user.valid?
-				expect(user.errors[:email]).to include("を入力してください")
+				@user.email = ""
+				@user.valid?
+				expect(@user.errors[:email]).to include("を入力してください")
 			end
 			it "アドレス100文字以上" do
-				user = build(:user,email: "a"*100+"@gmail.com")
-				user.valid?
-				expect(user.errors[:email]).to include("は100文字以内で入力してください")
+				@user.email = "a"*100+"@gmail.com"
+				@user.valid?
+				expect(@user.errors[:email]).to include("は100文字以内で入力してください")
 			end
 			it "アドレス100文字以下" do
-				user = build(:user,email: "a"*90+"@gmail.com")
-				expect(user).to be_valid
+				@user.email = "a"*90+"@gmail.com"
+				expect(@user).to be_valid
 			end
 			it "アドレス被り" do
 				user = create(:user)
@@ -42,18 +51,17 @@ describe User do
 		end
 		context "パスワード" do
 			it "パスワードなし" do
-				user = build(:user,password: "")
-				user.valid?
-				expect(user.errors[:password]).to include("を入力してください")
+				@user.password = " "
+				@user.valid?
+				expect(@user.errors[:password]).to include("を入力してください")
 			end
 			it "パスワード6文字以下" do
-				user = build(:user,password: "1234")
-				user.valid?
-				expect(user.errors[:password]).to include("は6文字以上で入力してください")
+				@user.password = "1234"
+				@user.valid?
+				expect(@user.errors[:password]).to include("は6文字以上で入力してください")
 			end
 			it "パスワード6文字以上" do
-				user = build(:user)
-				expect(user).to be_valid
+				expect(@user).to be_valid
 			end
 		end
 	end
