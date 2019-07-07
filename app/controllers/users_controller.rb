@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @services = @user.services
   end
 
   def edit
