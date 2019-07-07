@@ -6,19 +6,19 @@
 				ul.uk-navbar-nav
 					li
 						= link_to root_path,class: "nav-color" do
-							| 登録
+							| User
 						.uk-navbar-dropdown
 							ul.uk-nav.uk-navbar-dropdown-nav
 								- if logged_in?
 									li
-										= link_to logout_path,method: :delete do
-											| Log out
-									li
 										= link_to current_user do
-											| Profile
-									li.uk-nav-divider
+											| マイページ
+									li
 										= link_to edit_user_path(current_user) do
-											| Setting
+											| プロフィール編集
+									li.uk-nav-divider
+										= link_to logout_path,method: :delete do
+											| ログアウト
 								- else
 									li
 										= link_to new_user_path do
@@ -28,21 +28,15 @@
 											| ログイン
 					li
 						= link_to root_path,class: "nav-color" do
-							| Parent
+							| Service
 						.uk-navbar-dropdown
 							ul.uk-nav.uk-navbar-dropdown-nav
-								li.uk-active
-									= link_to root_path do
-										| Active
 								li
-									= link_to root_path do
-										| Item
-								li.uk-nav-header
-									= link_to root_path do
-										| Header
+									= link_to demand_services_path do
+										| 悩み事をだす
 								li
-									= link_to root_path do
-										| TEST
+									= link_to supply_services_path do
+										| スキルを出す
 								li.uk-nav-divider
 									= link_to root_path do
 										| Item

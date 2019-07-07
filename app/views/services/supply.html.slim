@@ -1,11 +1,12 @@
 = render partial: "parts/registration_header"
 .service
 	.service_title
-		h2 サービスを出品する
+		h2 スキルを出品する
 		p 自分の得意なこと、好きなことをサービスとして売り出そう!
 	.service_page.uk-grid.uk-flex-center
 		.service_page_r.uk-width-3-5
 			= form_for @service do |f|
+				= f.hidden_field :work,value: "supply"
 				.service_page_r_form
 					h4 イメージ画像
 					.service_page_r_form_image
