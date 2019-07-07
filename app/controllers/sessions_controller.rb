@@ -10,9 +10,8 @@ class SessionsController < ApplicationController
         log_in user 
         params[:session][:remember_me] == '1' ? remember(user) : forget(user) #記憶するかどうか
         flash[:success] = "ログイン成功しました"
-        request_back_or user #ユーザーの行き先を保存
+        redirect_to user
       else
-        # message = "Account not activated"
         flash[:alert] = "アカウントを有効化してください"
         redirect_to root_path
       end
