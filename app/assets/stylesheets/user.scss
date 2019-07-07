@@ -23,7 +23,10 @@
 				word-wrap: break-word;
 			}
 			&_edit{
-				@include side_border;				
+				@include side_border;
+				.fa-address-card{
+					color: #666666;
+				}				
 			}
 			&_point{
 				@include side_border;				
@@ -100,7 +103,7 @@
 					display: block;
 					font-size: 10px;
 				}
-				&_nickname,&_email,&_name{
+				&_nickname,&_email,&_name,&_image{
 					input{
 						@include form_shape(90%);
 					}

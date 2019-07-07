@@ -6,10 +6,7 @@
 		.mypage_sec_r.uk-width-1-5
 			h5 マイページ
 			.mypage_sec_r_icon
-				- if current_user.image.attached?
-					= image_tag(current_user.image)
-				- else
-					= image_tag("user_default.jpeg")
+				= user_show_image(current_user)
 				p
 					= current_user.nickname
 			.mypage_sec_r_introduction
@@ -34,25 +31,13 @@
 				= link_to root_path,class: "tag" do
 					span チャットORスキル
 			.mypage_sec_l_tablelist
-				article
-					= image_tag("art-4282328_640.jpg")
-					.article_body
-						.article_body_info
-							p aaaaaaaaaaaa
-						.article_body_title
-							= link_to "タイトル",root_path
-				article
-					= image_tag("art-4282328_640.jpg")
-					.article_body
-						.article_body_info
-							p aaaaaaaaaaaa
-						.article_body_title
-							= link_to "タイトル",root_path
-				article
-					= image_tag("art-4282328_640.jpg")
-					.article_body
-						.article_body_info
-							p aaaaaaaaaaaa
-						.article_body_title
-							= link_to "タイトル",root_path
+				- @services.each do |service|
+					article
+						= user_show_image(current_user)
+						.article_body
+							.article_body_info
+								p 
+									= simple_time(service.created_at)
+							.article_body_title
+								= link_to "#{service.title}",root_path
 = render partial: 'parts/footer'

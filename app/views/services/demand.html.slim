@@ -6,6 +6,7 @@
 	.service_page.uk-grid.uk-flex-center
 		.service_page_r.uk-width-3-5
 			= form_for @service do |f|
+				= f.hidden_field :work,value: "demand"
 				.service_page_r_form
 					h4 イメージ画像
 					.service_page_r_form_image
