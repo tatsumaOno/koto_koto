@@ -6,10 +6,7 @@
 		.mypage_sec_r.uk-width-1-5
 			h5 マイページ
 			.mypage_sec_r_icon
-				- if current_user.image.attached?
-					= image_tag(current_user.image)
-				- else
-					= image_tag("user_default.jpeg")
+				= user_show_image(current_user)
 				p
 					= current_user.nickname
 			.mypage_sec_r_introduction
@@ -36,10 +33,7 @@
 			.mypage_sec_l_tablelist
 				- @services.each do |service|
 					article
-						- if current_user.image.attached?
-							= image_tag(current_user.image)
-						- else
-							= image_tag("user_default.jpeg")
+						= user_show_image(current_user)
 						.article_body
 							.article_body_info
 								p 
