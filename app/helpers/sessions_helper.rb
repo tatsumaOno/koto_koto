@@ -45,13 +45,13 @@ module SessionsHelper
 	end
 
 	#ユーザーの行き先をsessionに加えている
-	def store_location
-		session[:forwarding_url] = request_original_url if request.get? #request_original_urlでリクエスト先を取得
-	end
+	# def store_location
+	# 	session[:forwarding_url] = request_original_url if request.get? #request_original_urlでリクエスト先を取得
+	# end
 
 	#ユーザーの行き先を保存
-	def request_back_or(default)
-		redirect_to(session[:forwarding_url] || default)
-		session.delete(:forwarding_url)
-	end
+	# def request_back_or(default)
+	# 	redirect_to(session[:forwarding_url] || default)
+	# 	session.delete(:forwarding_url)
+	# end
 end

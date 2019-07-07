@@ -44,16 +44,4 @@ class UsersController < ApplicationController
     def edit_user_params
       params.require(:user).permit(:name,:nickname,:email,:introduction,:image)
     end
-
-    def logged_in_user
-      unless logged_in?
-        store_location
-        redirect_to login_path
-      end
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless @user == current_user
-    end
 end
