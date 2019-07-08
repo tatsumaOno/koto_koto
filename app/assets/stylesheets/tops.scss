@@ -71,8 +71,37 @@
 						font-size: 20px;
 						width: 30px;
 					}
+				}	
+			}
+			&__click{
+				&__supply,&__demand{
+					display: inline-block;
+					background-color: #fff;
+					padding: 20px 50px;
+					position: absolute;
+					top: 150%;
+					border-radius: 5px;
+					text-decoration: none;
+					font-weight: bold;	
 				}
-				
+				&__supply{
+					border: 2px solid #22B8CF;
+					left: -40%;
+					color: #22B8CF;
+					&:hover{
+						background-color: #22B8CF;
+						color: #fff;
+					}
+				}
+				&__demand{
+					border: 2px solid orange;
+					right: -40%;
+					color: orange;
+					&:hover{
+						background-color: orange;
+						color: #fff;
+					}
+				}
 			}
 		}
 	}
