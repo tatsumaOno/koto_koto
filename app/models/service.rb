@@ -5,7 +5,6 @@ class Service < ApplicationRecord
 	validates :time,presence: true
 	validates :work,presence: true
 	validates :user_id,presence: true
-	validates :area_id,presence: true
 	validate :image_should_be_presence
 
 	has_one_attached :image
