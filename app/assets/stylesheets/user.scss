@@ -36,9 +36,50 @@
 			}
 		}
 		&_l{
-			margin-top: 10px;
 			&_score{
-				height: 280px;
+				display: flex;
+				height: 350px;
+				&_circle{
+					display: flex;
+					align-items: center;
+					margin: 0 auto;
+					width: 300px;
+					height: 300px;
+					text-align:center;
+					border-radius: 50%;
+					background: -moz-linear-gradient(left, #84fab0 0%, #8fd3f4 100%);
+					background: -webkit-linear-gradient(left, #84fab0 0%, #8fd3f4 100%);
+					background: linear-gradient(to right, #84fab0 0%, #8fd3f4 100%);
+					&_data{
+						width: 250px;
+						height: 250px;
+						margin: 0 auto;
+						border-radius: 50%;
+						background-color: #fff;
+						h5{
+							padding-top: 30px;
+							position: relative;
+							margin: 0;
+							display: inline-block;
+							font-size: 70px;
+							&:before{
+								content: '';
+								position: absolute;
+								left: 50%;
+								bottom: 0;/*線の上下位置*/
+								display: inline-block;
+								width: 120px;/*線の長さ*/
+								height: 2px;/*線の太さ*/
+								-webkit-transform: translateX(-50%);
+								transform: translateX(-50%);/*位置調整*/
+								background: -moz-linear-gradient(left, #84fab0 0%, #8fd3f4 100%);
+								background: -webkit-linear-gradient(left, #84fab0 0%, #8fd3f4 100%);
+								background: linear-gradient(to right, #84fab0 0%, #8fd3f4 100%);
+								border-radius: 2px;/*線の丸み*/
+							}
+						}	
+					}
+				}
 			}
 			&_tags{
 				display: flex;

@@ -22,7 +22,13 @@
 				p 50pt
 		.mypage_sec_l.uk-width-3-5
 			.mypage_sec_l_score
-				p score
+				h5 信頼スコア
+				.mypage_sec_l_score_circle
+					.mypage_sec_l_score_circle_data
+						h5
+							= current_user.score
+						p 現在のスコア
+						
 			.mypage_sec_l_tags
 				= link_to root_path,class: "tag tag-active" do
 					span リクエスト
