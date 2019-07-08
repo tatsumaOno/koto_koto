@@ -11,6 +11,7 @@ class Service < ApplicationRecord
 	has_one_attached :image
 	belongs_to :user
 	belongs_to :area
+	belongs_to :category
 
 	enum work: {"demand": 0,"supply": 1}
 
