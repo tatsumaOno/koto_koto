@@ -5,9 +5,14 @@ class Service < ApplicationRecord
 	validates :time,presence: true
 	validates :work,presence: true
 	validates :user_id,presence: true
+	validate :image_should_be_presence
+
 	has_one_attached :image
-	
 	belongs_to :user
 
 	enum work: {"demand": 0,"supply": 1}
+
+	def image_should_be_presence
+		errors.add(:image,:presence) unless image.attached?
+	end
 end

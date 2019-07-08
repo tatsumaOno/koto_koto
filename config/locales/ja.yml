@@ -9,3 +9,15 @@ ja:
         name: 名前
         nickname: ニックネーム
         introduction: 自己紹介
+      service:
+        title: タイトル
+        detail: 詳しい説明
+        price: 金額
+        time: 所要時間
+        image: イメージ画像
+    errors:
+      models: 
+        service:
+          attributes:
+            image: 
+              presence: "を入力してください"
