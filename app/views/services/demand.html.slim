@@ -20,11 +20,6 @@
 				/ 	.service_page_form_image
 				/ 		= f.file_field :image
 				/ 		small 写真を１枚アップロードしてください。
-				/ .service_page_form
-				/ 	h4 地域
-				/ 	.service_page_form_image
-				/ 		= f.file_field :image
-				/ 		small 写真を１枚アップロードしてください。
 				.service_page_r_form
 					h4 タイトル
 					.service_page_r_form_title
@@ -35,6 +30,10 @@
 					.service_page_r_form_detail
 						= f.text_area :detail
 						small 1000文字以内
+				.service_page_r_form
+					h4 地域
+					.service_page_r_form_title
+						= f.collection_select :area_id, Area.all,:id, :name, include_blank: '選択して下さい'
 				.service_page_r_form
 					h4 金額
 					.service_page_r_form_price

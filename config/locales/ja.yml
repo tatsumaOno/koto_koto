@@ -15,6 +15,7 @@ ja:
         price: 金額
         time: 所要時間
         image: イメージ画像
+        area_id: 地域
     errors:
       models: 
         service:

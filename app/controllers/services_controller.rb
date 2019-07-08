@@ -33,6 +33,6 @@ class ServicesController < ApplicationController
 
 private
     def service_params
-      params.require(:service).permit(:image,:title,:detail,:price,:time,:work).merge(user_id: current_user.id)
+      params.require(:service).permit(:image,:title,:detail,:price,:time,:work,:area_id).merge(user_id: current_user.id)
     end
 end
