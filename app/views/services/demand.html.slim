@@ -5,8 +5,9 @@
 		p 悩みごとを出して誰かに頼んでみよう!
 	.service_page.uk-grid.uk-flex-center
 		.service_page_r.uk-width-3-5
-			= form_for @service do |f|
+			= form_for(@service,url: demand_create_services_path) do |f|
 				= f.hidden_field :work,value: "demand"
+				= render 'parts/error_messages'
 				.service_page_r_form
 					h4 イメージ画像
 					.service_page_r_form_image
