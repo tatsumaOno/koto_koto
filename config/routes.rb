@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     collection do
       get :demand
       get :supply
+      post :demand_create
+      post :supply_create
     end
   end
   resources :account_activations,only: [:edit]
