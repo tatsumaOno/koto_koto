@@ -3,3 +3,37 @@
 		display: none;
 	}
 }
+//service_show
+@media screen and (max-width: 1380px) {
+	.myservice_top{
+		height: 100% !important;
+		padding-bottom: 50px;
+		&_sec{
+			width: 80%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			&_l{
+				margin: 0 !important;
+				width: 100% !important;
+			}
+			&_r{
+				margin: 0 !important;
+				border-top: 2px solid #F2F2F2;
+				height: 100%;
+				width: 100% !important;
+			}
+		}
+	}
+	}
+@media screen and (max-width: 1040px){
+	.myservice_contents_user{
+		width: 100% !important;
+		p{
+			font-size: 20px !important;
+		}
+	}
+	.myservice_contents_data_sec{
+		height: 100% !important;
+	}
+}
