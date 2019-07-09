@@ -1,0 +1,68 @@
+= render partial: 'parts/common_header'
+.myservice_top
+	.myservice_top_sec
+		.myservice_top_sec_l.uk-width-2-3
+			= image_tag(@service.image)
+		.myservice_top_sec_r.uk-width-1-3
+			h1
+				= @service.title
+			h2 ￥#{@service.price}
+			.myservice_top_sec_r_buy
+				- if @service.user == current_user 
+					= link_to edit_service_path(@service),class: "myservice_top_sec_r_buy_button"
+						i.fas.fa-edit
+						span 編集する
+					= link_to root_path,class: "myservice_top_sec_r_buy_delete"
+						i.fas.fa-trash
+						span 削除する
+				- else
+					= link_to root_path,class: "myservice_top_sec_r_buy_button"
+						i.fas.fa-shopping-cart
+						span 購入申請
+.myservice_contents.uk-container
+	.myservice_contents_data.uk-grid.uk-flex-center
+		.myservice_contents_data_sec.uk-width-2-3
+			h2 情報
+			.myservice_contents_data_sec_wrap
+				.myservice_contents_data_sec_wrap_title
+					h5 カテゴリー
+				.myservice_contents_data_sec_wrap_detail
+					p
+						= @service.category.name
+			.myservice_contents_data_sec_wrap
+				.myservice_contents_data_sec_wrap_title
+					h5 地域
+				.myservice_contents_data_sec_wrap_detail
+					p
+						= @service.area.name
+			.myservice_contents_data_sec_wrap
+				.myservice_contents_data_sec_wrap_title
+					h5 所要時間
+				.myservice_contents_data_sec_wrap_detail
+					p
+						= @service.time
+			.myservice_contents_data_sec_wrap
+				.myservice_contents_data_sec_wrap_title
+					h5 詳細
+				.myservice_contents_data_sec_wrap_detail
+					p
+						= @service.detail
+		.myservice_contents_user.uk-width-1-3
+			h5 出品者プロフィール
+			.myservice_contents_user_sec
+				= user_show_image(@service.user)
+				.myservice_contents_user_sec_name
+					= @service.user.nickname
+				.myservice_contents_user_sec_intro
+					h5 自己紹介
+					p
+						= @service.user.introduction
+		.myservice_contents_comment.uk-width-2-3
+			h2 公開コメント
+			.myservice_contents_comment_title
+				h4 公開コメントを追加する
+			.myservice_contents_comment_form
+		.myservice_contents_comment.uk-width-2-3
+			h2 コメント一覧
+		
+= render partial: 'parts/footer'

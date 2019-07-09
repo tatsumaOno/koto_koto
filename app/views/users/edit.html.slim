@@ -1,4 +1,4 @@
-= render partial: 'parts/registration_header'
+= render partial: 'parts/common_header'
 .mypage.uk-container
 	.mypage_sec.uk-grid.uk-flex-center
 		= render partial: 'parts/user_sidebar'
@@ -8,7 +8,7 @@
 			- else
 				= image_tag("user_default.jpeg")
 			= form_for @user do |f|
-				= render 'parts/error_messages'
+				= render 'parts/error_messages',model: f.object
 				.mypage_sec_edit_form.uk-width-1-1
 					.mypage_sec_edit_form_nickname.uk-width-1-2
 						= f.label :ニックネーム

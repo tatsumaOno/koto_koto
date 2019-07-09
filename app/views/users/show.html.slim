@@ -1,4 +1,4 @@
-= render partial: 'parts/registration_header'
+= render partial: 'parts/common_header'
 = render partial: "parts/flash"
 .mypage.uk-container
 	.mypage_sec.uk-grid.uk-flex-center
@@ -25,8 +25,11 @@
 				h5 信頼スコア
 				.mypage_sec_l_score_circle
 					.mypage_sec_l_score_circle_data
-						h5
-							= current_user.score
+						- if current_user.score == nil
+							h5 0
+						- else
+							h5
+								= current_user.score
 						p 現在のスコア
 						
 			.mypage_sec_l_tags
@@ -45,5 +48,5 @@
 								p 
 									= simple_time(service.created_at)
 							.article_body_title
-								= link_to "#{service.title}",root_path
+								= link_to "#{service.title}",service_path(service)
 = render partial: 'parts/footer'

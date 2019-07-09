@@ -1,9 +1,9 @@
-= render partial: 'parts/registration_header'
+= render partial: 'parts/common_header'
 .form_wrapper
 	h2 新規会員登録
 	.form_design
 		= form_for @user do |f|
-			= render 'parts/error_messages'
+			= render 'parts/error_messages',model: f.object
 			.field
 				= f.label :name
 				br

@@ -1,14 +1,7 @@
-- if @user.errors.any?
+- if model.errors.any?
 	#error_explanation
 		.alert.alert-danger #{@user.errors.count} つエラーがあります
 		ul
 			- @user.errors.full_messages.each do |msg|
-				li
-					= msg
-- elsif @service.errors.any?
-	#error_explanation
-		.alert.alert-danger #{@service.errors.count} つエラーがあります
-		ul
-			- @service.errors.full_messages.each do |msg|
 				li
 					= msg
