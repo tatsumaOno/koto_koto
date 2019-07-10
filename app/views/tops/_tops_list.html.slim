@@ -1,0 +1,7 @@
+.card-list
+	h2 なやみごと一覧
+	= render partial: "parts/card",locals: {model: @demands}
+	h2 スキル一覧
+	= render partial: "parts/card",locals: {model: @supplies}		
+.border-icon
+	i.fab.fa-affiliatetheme

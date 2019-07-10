@@ -1,8 +1,8 @@
 = render partial: "parts/flash"
-= render partial: 'parts/tops_header'
+= render partial: 'tops_header'
 - if logged_in?
-	= render partial: 'parts/index_category'
+	= render partial: 'tops_category'
 - else
 	= render partial: 'parts/concept'
-= render partial: 'parts/tops_list'
+= render partial: 'tops_list'
 = render partial: 'parts/footer'

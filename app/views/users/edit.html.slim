@@ -1,7 +1,7 @@
 = render partial: 'parts/common_header'
 .mypage.uk-container
 	.mypage_sec.uk-grid.uk-flex-center
-		= render partial: 'parts/user_sidebar'
+		= render partial: 'user_sidebar'
 		.mypage_sec_edit.uk-width-4-5
 			- if current_user.image.attached?
 				= image_tag(current_user.image)

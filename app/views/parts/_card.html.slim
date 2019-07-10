@@ -1,0 +1,18 @@
+.uk-child-width-1-4(uk-grid)
+	- model.each do |service|
+		.uk-card.uk-card-default
+			.uk-card-media-top
+				.uk-card-media-top
+					= image_tag(service.image)
+				.uk-card-body
+					- if logged_in?
+						= link_to service.title,service_path(service),class: "uk-card-title"
+					- else
+						p.uk-card-body-title
+							= service.title
+					.uk-card-body-text
+						.uk-card-body-text-area
+							p 
+								= service.area.name
+						.uk-card-body-text-price
+							p ￥ #{service.price}
