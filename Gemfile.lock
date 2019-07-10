@@ -95,6 +95,8 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     diff-lcs (1.3)
+    discard (1.1.0)
+      activerecord (>= 4.2, < 7)
     erubi (1.8.0)
     execjs (2.7.0)
     factory_bot (5.0.2)
@@ -141,8 +143,6 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    paranoia (2.4.2)
-      activerecord (>= 4.0, < 6.1)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -282,6 +282,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chromedriver-helper
+  discard
   factory_bot_rails
   font-awesome-sass
   foreman
@@ -290,7 +291,6 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
   mysql2 (>= 0.4.4, < 0.6.0)
-  paranoia
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)

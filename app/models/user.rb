@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	include Discard::Model
+  	default_scope -> { kept }
 
 	VALID_EMAIL_REGEX = /([\w+\-.]+)@[a-z\d]+\.[a-z]{2,3}/i
 	validates :name, presence: true,length: {maximum: 50}
@@ -12,7 +14,6 @@ class User < ApplicationRecord
 	has_one_attached :image #activeStorage
 	has_many :services,dependent: :destroy
 	has_many :comments,dependent: :destroy
-	acts_as_paranoid
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
 	before_save :downcase_email
 	before_create :create_activation_digest
