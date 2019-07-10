@@ -38,7 +38,11 @@ h4 所要時間
 	.service_page_r_form
 		.service_page_r_form_button
 			= f.submit "サービスを要望する",class: "mypage_sec_edit_form_button_submit"
-- else
+- elsif request.path_info == supply_services_path
 	.service_page_r_form
 		.service_page_r_form_button
 			= f.submit "サービスを出品する",class: "mypage_sec_edit_form_button_submit"
+- else
+	.service_page_r_form
+		.service_page_r_form_button
+			= f.submit "保存する",class: "mypage_sec_edit_form_button_submit"

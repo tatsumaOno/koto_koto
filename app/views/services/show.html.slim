@@ -1,4 +1,5 @@
 = render partial: 'parts/common_header'
+= render partial: "parts/flash"
 .myservice_top
 	.myservice_top_sec
 		.myservice_top_sec_l.uk-width-2-3
@@ -12,7 +13,7 @@
 					= link_to edit_service_path(@service),class: "myservice_top_sec_r_buy_button"
 						i.fas.fa-edit
 						span 編集する
-					= link_to root_path,class: "myservice_top_sec_r_buy_delete"
+					= link_to service_path(@service),method: :delete,class: "myservice_top_sec_r_buy_delete",data: { confirm: "削除してもよろしいですか？" }
 						i.fas.fa-trash
 						span 削除する
 				- else

@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
-  before_action :logged_in_user,only: [:demand,:demand_create,:supply,:supply_create,:show,:edit,:update] 
-  before_action :correct_user,only: [:demand,:demand_create,:supply,:supply_create,:edit,:update]
-  before_action :find_service,only: [:show,:edit,:update]
+  before_action :logged_in_user,only: [:demand,:demand_create,:supply,:supply_create,:show,:edit,:update,:destroy] 
+  before_action :correct_user,only: [:demand,:demand_create,:supply,:supply_create,:edit,:update,:destroy]
+  before_action :find_service,only: [:show,:edit,:update,:destroy]
 
   def demand #悩み
     @service = Service.new()
@@ -35,6 +35,25 @@ class ServicesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @service.update(service_params)
+      redirect_to service_path(@service)
+      flash[:success] = "編集が完了しました"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @service.user.id = @user.id
+      @service.destroy
+      redirect_to @user
+      flash[:danger] = "削除しました"
+    else
+      render :show
+    end
   end
 
 
