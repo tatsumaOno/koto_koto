@@ -1,0 +1,10 @@
+= render partial: "parts/common_header"
+.service
+	.service_title
+		h2 編集する
+		p 編集してより詳しく相手に伝えよう!
+	.service_page.uk-grid.uk-flex-center
+		.service_page_r.uk-width-3-5
+			= form_for @service do |f|
+				= render partial: 'services_form',locals: {f: f}
+= render partial: 'parts/footer'
