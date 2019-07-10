@@ -64,6 +64,7 @@
 				h4 公開コメントを追加する
 				= form_with(model: [@service,@comment]) do |f|
 					= f.text_area :detail
+					small 50文字以内
 					= f.submit "送信する"
 			.myservice_contents_comment_form
 		.myservice_contents_comment.uk-width-2-3
