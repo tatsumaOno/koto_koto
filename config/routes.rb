@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post :demand_create
       post :supply_create
     end
+    resources :comments,only: [:create]
   end
   resources :account_activations,only: [:edit]
   resources :password_resets,only: [:new,:create,:edit,:update]

@@ -49,4 +49,7 @@
 									= simple_time(service.created_at)
 							.article_body_title
 								= link_to "#{service.title}",service_path(service)
+							.article_body_link
+								= link_to "編集",edit_service_path(service),class: "article_body_link_edit"
+								= link_to "削除",service_path(service),method: :delete,class: "article_body_link_delete",data: { confirm: "削除してもよろしいですか？" }
 = render partial: 'parts/footer'

@@ -53,8 +53,6 @@ class PasswordResetsController < ApplicationController
     end
 
     def check_expiration
-      if @user.password_reset_expired?
-        redirect_to new_password_reset_path
-      end
+      redirect_to new_password_reset_path if @user.password_reset_expired?
     end
 end

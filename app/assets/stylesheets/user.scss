@@ -26,7 +26,10 @@
 				@include side_border;
 				.fa-address-card{
 					color: #666666;
-				}				
+				}
+				a{
+					color: #666666;
+				}			
 			}
 			&_point{
 				@include side_border;				
@@ -116,6 +119,39 @@
 						&_info{
 							p{
 								margin: 0;
+							}
+						}
+						&_title{
+							a{
+								color: #666666;
+								text-decoration: none;
+							}
+						}
+						&_link{
+							margin-top: 10px;
+							&_edit,&_delete{
+								margin-right: 10px;
+								padding: 5px;
+								border-radius: 10px;
+								font-size: 12px;
+							}
+							&_edit{
+								border: 1px solid green;
+								color: green;
+								&:hover{
+									background: green;
+									color: #fff;
+									text-decoration: none;
+								}
+							}
+							&_delete{
+								border: 1px solid red;
+								color: red;
+								&:hover{
+									background: red;
+									color: #fff;
+									text-decoration: none;
+								}
 							}
 						}
 					}
