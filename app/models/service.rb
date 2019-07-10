@@ -8,10 +8,11 @@ class Service < ApplicationRecord
 	validate :image_should_be_presence
 
 	has_one_attached :image
-	has_many   :comments
+	has_many   :comments,dependent: :destroy
 	belongs_to :user
 	belongs_to :area
 	belongs_to :category
+	acts_as_paranoid
 
 	enum work: {"demand": 0,"supply": 1}
 
