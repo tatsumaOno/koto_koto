@@ -20,10 +20,10 @@
 					= link_to root_path,class: "myservice_top_sec_r_buy_button"
 						i.fas.fa-shopping-cart
 						span 購入申請
-.myservice_contents.uk-container
+.myservice_contents.uk-container.uk-width-1-1
 	.myservice_contents_data.uk-grid.uk-flex-center
 		.myservice_contents_data_sec.uk-width-2-3
-			h2 情報
+			h2 詳細情報
 			.myservice_contents_data_sec_wrap
 				.myservice_contents_data_sec_wrap_title
 					h5 カテゴリー
@@ -65,8 +65,23 @@
 				= form_with(model: [@service,@comment]) do |f|
 					= f.text_area :detail
 					small 50文字以内
-					= f.submit "送信する"
+					= f.submit "送信する",class: "replybutton"
 			.myservice_contents_comment_form
 		.myservice_contents_comment.uk-width-2-3
 			h2 コメント一覧	
+			- @comments.each do |comment|
+				article.uk-comment
+					header.uk-comment-header.uk-grid-medium.uk-flex-middle[uk-grid]
+						.uk-width-auto
+							= image_tag(comment.user.image,width: "40",height: "40",class: "uk-comment-avatar")
+						.uk-width-expand
+							h4.uk-comment-title.uk-margin-remove
+								= link_to comment.user.nickname,root_path,class: "uk-link-reset"
+							ul.uk-comment-meta.uk-subnav.uk-subnav-divider.uk-margin-remove-top
+								li
+									p
+										= simple_time(comment.created_at)
+					.uk-comment-body
+						p
+							= comment.detail
 = render partial: 'parts/footer'

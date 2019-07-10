@@ -33,6 +33,7 @@ class ServicesController < ApplicationController
 
   def show 
     @comment = Comment.new()
+    @comments = Comment.includes(:user).where(service_id: @service.id)
   end
 
   def edit
