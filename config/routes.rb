@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   root 'tops#index'
-  resources :users
+  resources :users do
+    member do
+      get :discard
+    end
+  end
+
   resources :services do
     collection do
       get :demand
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :comments,only: [:create]
   end
+
   resources :account_activations,only: [:edit]
   resources :password_resets,only: [:new,:create,:edit,:update]
   get '/login',to: 'sessions#new'
