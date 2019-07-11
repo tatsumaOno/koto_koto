@@ -25,13 +25,9 @@
 				h5 信頼スコア
 				.mypage_sec_l_score_circle
 					.mypage_sec_l_score_circle_data
-						- if current_user.score == nil
-							h5 0
-						- else
-							h5
-								= current_user.score
+						h5
+							= display_score(current_user)
 						p 現在のスコア
-						
 			.mypage_sec_l_tags
 				= link_to root_path,class: "tag tag-active" do
 					span リクエスト

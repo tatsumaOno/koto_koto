@@ -3,10 +3,7 @@
 	.mypage_sec.uk-grid.uk-flex-center
 		= render partial: 'user_sidebar'
 		.mypage_sec_edit.uk-width-4-5
-			- if current_user.image.attached?
-				= image_tag(current_user.image)
-			- else
-				= image_tag("user_default.jpeg")
+			= user_show_image(current_user)
 			= form_for @user do |f|
 				= render 'parts/error_messages',model: f.object
 				.mypage_sec_edit_form.uk-width-1-1

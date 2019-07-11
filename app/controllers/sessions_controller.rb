@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       end
     else
       flash.now[:danger] = '無効なメールアドレスとパスワードの組み合わせです'
-      render 'new'
+      render :new
     end
   end
   
