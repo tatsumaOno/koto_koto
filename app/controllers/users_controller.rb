@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    @user.discard
+    @user.destroy
     flash[:alert] = "退会しました"
     redirect_to root_path
   end

@@ -8,13 +8,10 @@ class Service < ApplicationRecord
 	validate :image_should_be_presence
 
 	has_one_attached :image
-	has_many   :comments,dependent: :destroy
+	has_many   :comments, dependent: :destroy
 	belongs_to :user
 	belongs_to :area
 	belongs_to :category
-
-	include Discard::Model
-  	default_scope -> { joins(:user).merge(User.kept) }
 
 	enum work: {"demand": 0,"supply": 1}
 
