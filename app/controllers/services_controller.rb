@@ -49,7 +49,7 @@ class ServicesController < ApplicationController
   end
 
   def destroy
-    if @service.user.id = @user.id
+    if @service.user.id == @user.id
       @service.destroy
       redirect_to @user
       flash[:danger] = "削除しました"

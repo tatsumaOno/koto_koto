@@ -9,14 +9,11 @@ class User < ApplicationRecord
 	
 	has_secure_password #セキュアなパスワードを作成 password_digestカラム gem bcrypt
 	has_one_attached :image #activeStorage
-	has_many :services,dependent: :destroy
-	has_many :comments,dependent: :destroy
+	has_many :services, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
 	before_save :downcase_email
 	before_create :create_activation_digest
-
-	include Discard::Model
-  	default_scope -> { kept }
 
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
