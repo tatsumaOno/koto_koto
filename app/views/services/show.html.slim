@@ -73,7 +73,8 @@
 				article.uk-comment
 					header.uk-comment-header.uk-grid-medium.uk-flex-middle[uk-grid]
 						.uk-width-auto
-							= image_tag(comment.user.image,width: "40",height: "40",class: "uk-comment-avatar")
+							.uk-comment-avatar
+								= user_show_image(comment.user)
 						.uk-width-expand
 							h4.uk-comment-title.uk-margin-remove
 								= link_to comment.user.nickname,root_path,class: "uk-link-reset"

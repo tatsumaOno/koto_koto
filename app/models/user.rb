@@ -1,7 +1,4 @@
 class User < ApplicationRecord
-	include Discard::Model
-  	default_scope -> { kept }
-
 	VALID_EMAIL_REGEX = /([\w+\-.]+)@[a-z\d]+\.[a-z]{2,3}/i
 	validates :name, presence: true,length: {maximum: 50}
 	validates :nickname,presence: true,length: {maximum: 30}
@@ -18,6 +15,8 @@ class User < ApplicationRecord
 	before_save :downcase_email
 	before_create :create_activation_digest
 
+	include Discard::Model
+  	default_scope -> { kept }
 
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

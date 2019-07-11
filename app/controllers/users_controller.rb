@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user,only: [:edit,:update] 
-  before_action :correct_user,only: [:show,:edit,:update]
+  before_action :logged_in_user,only: [:edit,:update,:discord] 
+  before_action :correct_user,only: [:show,:edit,:update,:discord,:destroy]
 
   def new
     @user = User.new
@@ -32,6 +32,16 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def discard
+  end
+
+  def destroy
+    log_out if logged_in?
+    @user.discard
+    flash[:alert] = "退会しました"
+    redirect_to root_path
   end
 
 

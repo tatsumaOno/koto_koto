@@ -1,0 +1,9 @@
+= render partial: 'parts/common_header'
+.discard
+	.discard_wrap 
+		h2 退会
+		.discard_wrap_content
+			h3 注意事項
+			p 退会された場合はそれまでの結果や評価の履歴が削除されますので、ご了承ください。			
+			= link_to "退会する",user_path(current_user),method: :delete,class: "discard_wrap_content_button"
+= render partial: 'parts/footer'
