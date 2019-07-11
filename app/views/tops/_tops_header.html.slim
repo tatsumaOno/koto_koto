@@ -5,41 +5,31 @@
 			.uk-navbar-left
 				ul.uk-navbar-nav
 					li
-						= link_to root_path,class: "nav-color" do
-							| User
+						= link_to "User",root_path,class: "nav-color"
 						.uk-navbar-dropdown
 							ul.uk-nav.uk-navbar-dropdown-nav
 								- if logged_in?
 									li
-										= link_to current_user do
-											| マイページ
+										= link_to "マイページ",current_user
 									li
-										= link_to edit_user_path(current_user) do
-											| プロフィール編集
+										= link_to "プロフィール編集",edit_user_path(current_user)
 									li.uk-nav-divider
-										= link_to logout_path,method: :delete do
-											| ログアウト
+										= link_to "ログアウト",logout_path,method: :delete
 								- else
 									li
-										= link_to new_user_path do
-											| 新規登録
+										= link_to "新規登録",new_user_path
 									li
-										= link_to login_path do
-											| ログイン
+										= link_to "ログイン",login_path
 					li
-						= link_to root_path,class: "nav-color" do
-							| Service
+						= link_to "Service",root_path,class: "nav-color"
 						.uk-navbar-dropdown
 							ul.uk-nav.uk-navbar-dropdown-nav
 								li
-									= link_to demand_services_path do
-										| 悩み事をだす
+									= link_to "悩み事をだす",demand_services_path
 								li
-									= link_to supply_services_path do
-										| スキルを出す
+									= link_to "スキルを出す",supply_services_path
 								li.uk-nav-divider
-									= link_to root_path do
-										| Item
+									= link_to "Item",root_path
 	.header-contents
 		h1 助けあいアプリ
 		p 日々の小さな悩みを助け合うアプリです。
