@@ -1,5 +1,11 @@
 = render partial: 'parts/common_header'
 = render partial: "parts/flash"
-= form_with url: cards_path do
-	script.payjp-button(src="https://checkout.pay.jp/" data-key="pk_test_e246c413fbda648615274bd1" data-text="カード情報を入力する" data-submit-text="カード情報を登録する" type="text/javascript")
+.mypage.uk-container
+	.mypage_sec.uk-grid.uk-flex-center
+		= render partial: 'users/user_sidebar'
+		.mypage_sec_card.uk-width-4-5
+			.mypage_sec_card_form
+				h2 お支払い登録
+				= form_with url: cards_path do
+					script.payjp-button(src="https://checkout.pay.jp/" data-key="pk_test_e246c413fbda648615274bd1" data-text="カード情報を入力する" data-submit-text="カード情報を登録する" type="text/javascript")
 = render partial: 'parts/footer'
