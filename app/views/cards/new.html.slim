@@ -1,0 +1,5 @@
+= render partial: 'parts/common_header'
+= render partial: "parts/flash"
+= form_with url: cards_path do
+	script.payjp-button(src="https://checkout.pay.jp/" data-key="pk_test_e246c413fbda648615274bd1" data-text="カード情報を入力する" type="text/javascript")
+= render partial: 'parts/footer'
