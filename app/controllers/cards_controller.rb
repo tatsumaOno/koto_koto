@@ -2,6 +2,13 @@ class CardsController < ApplicationController
 	require 'payjp'
 	include CardsHelper
 
+	def index
+		#メソッド化したい
+		@card = Card.find_by(user_id: current_user.id)
+		customer = Payjp::Customer.retrieve(@card.customer_id)
+		@card_information = customer.cards.retrieve(@card.card_id)
+	end
+
 	def new
 	end
 
