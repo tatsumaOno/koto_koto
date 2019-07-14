@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :logged_in_user,only: [:edit,:update,:discord] 
   before_action :correct_user,only: [:show,:edit,:update,:discord,:destroy]
 
+  require 'payjp'
+
   def new
     @user = User.new
   end
@@ -27,6 +29,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(edit_user_params)
+      if @card = Card.find_by(user_id: @user.id)
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        customer.email = @user.email
+        customer.save
+      end
+      #メソッド化したい
       flash[:success] = "ユーザー情報を更新しました"
       redirect_to @user
     else
@@ -39,6 +47,11 @@ class UsersController < ApplicationController
 
   def destroy
     log_out if logged_in?
+    if @card = Card.find_by(user_id: @user.id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer.delete
+    end
+    #メソッド化したい
     @user.destroy
     flash[:alert] = "退会しました"
     redirect_to root_path
