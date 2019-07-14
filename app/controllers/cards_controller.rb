@@ -5,6 +5,7 @@ class CardsController < ApplicationController
 	def index
 		#メソッド化したい
 		@card = Card.find_by(user_id: current_user.id)
+		Payjp.api_key = 'sk_test_a15dc8e443d70196461839ca'
 		customer = Payjp::Customer.retrieve(@card.customer_id)
 		@card_information = customer.cards.retrieve(@card.card_id)
 	end
@@ -22,5 +23,8 @@ class CardsController < ApplicationController
 			render :new
 			flash[:danger] = "不正な情報です"
 		end
+	end
+
+	def destroy
 	end
 end

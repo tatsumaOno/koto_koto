@@ -3,5 +3,22 @@
 .mypage.uk-container
 	.mypage_sec.uk-grid.uk-flex-center
 		= render partial: 'users/user_sidebar'
-		.mypage_sec_card_show.uk-width-4-5
+		.mypage_sec_show.uk-width-4-5
+			h2 支払い方法
+			.mypage_sec_show_inner
+				.mypage_sec_show_inner_head
+					i.fas.fa-credit-card
+					span
+						h3 クレジットカード情報
+				= form_with url: card_path(@card), method: :delete,class: "mypage_sec_show_inner_cont" do |f|
+					.mypage_sec_show_inner_cont_num
+						h5 カード情報
+						p
+							= "*********" + @card_information.last4
+					.mypage_sec_show_inner_cont_num
+						h5 使用期限
+						p
+							= @card_information.exp_year
+					.mypage_sec_show_inner_cont_num
+						= f.submit "削除する"
 = render partial: 'parts/footer'
