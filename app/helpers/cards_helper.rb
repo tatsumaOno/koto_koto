@@ -6,4 +6,8 @@ module CardsHelper
 						card: params['payjp-token']
 					)
 	end
+	
+	def card_present?
+		current_user.cards.present?
+	end
 end

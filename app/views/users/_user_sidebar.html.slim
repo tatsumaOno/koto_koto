@@ -13,9 +13,14 @@
 				li 
 					= link_to "プロフィール編集",edit_user_path(current_user)
 					i.fas.fa-chevron-right
-				li 
-					= link_to "クレジット",new_card_path
-					i.fas.fa-chevron-right
+				- if card_present?
+					li 
+						= link_to "支払い方法",cards_path
+						i.fas.fa-chevron-right
+				- else
+					li 
+						= link_to "支払い方法",new_card_path
+						i.fas.fa-chevron-right
 				li 
 					= link_to "パスワード変更",new_password_reset_path
 					i.fas.fa-chevron-right
