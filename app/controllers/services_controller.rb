@@ -41,7 +41,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to service_path(@service)
+      redirect_to @service
       flash[:success] = "編集が完了しました"
     else
       render :edit
