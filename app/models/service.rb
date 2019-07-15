@@ -14,6 +14,7 @@ class Service < ApplicationRecord
 	belongs_to :category
 
 	enum work: {"demand": 0,"supply": 1}
+	enum progress: {"契約前": 0,"契約中": 1,"契約終了": 2}
 
 	def image_should_be_presence
 		errors.add(:image,:presence) unless image.attached?
