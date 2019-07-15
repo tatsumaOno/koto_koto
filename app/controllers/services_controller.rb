@@ -58,9 +58,6 @@ class ServicesController < ApplicationController
     end
   end
 
-  
-
-
 private
     def find_service
       @service = Service.find(params[:id])
