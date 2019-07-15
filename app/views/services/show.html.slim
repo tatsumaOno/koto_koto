@@ -21,7 +21,7 @@
 						i.fas.fa-hands-helping
 						span 手助けする
 				- else
-					= link_to service_agreements_path,method: :post,class: "myservice_top_sec_r_buy_button",data: { confirm: "購入を確定しますか？" }
+					= link_to service_agreements_path(@service),method: :post,class: "myservice_top_sec_r_buy_button",data: { confirm: "購入を確定しますか？" }
 						i.fas.fa-shopping-cart
 						span 購入する
 .myservice_contents.uk-container.uk-width-1-1
