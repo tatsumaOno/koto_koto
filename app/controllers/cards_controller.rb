@@ -1,13 +1,10 @@
 class CardsController < ApplicationController
+	before_action :set_payjp,only: [:index,:destroy]
 	require 'payjp'
 	include CardsHelper
 
 	def index
-		#メソッド化したい
-		@card = Card.find_by(user_id: current_user.id)
-		Payjp.api_key = 'sk_test_a15dc8e443d70196461839ca'
-		customer = Payjp::Customer.retrieve(@card.customer_id)
-		@card_information = customer.cards.retrieve(@card.card_id)
+		@card_information = @customer.cards.retrieve(@card.card_id)
 	end
 
 	def new
@@ -26,5 +23,15 @@ class CardsController < ApplicationController
 	end
 
 	def destroy
+		@card.destroy
+		@customer.delete
+		redirect_to current_user
+		flash[:danger] = "カード情報を削除しました"
+	end
+
+private
+	def set_payjp
+		@card = Card.find_by(user_id: current_user.id)
+		@customer = Card.set_customer(@card)
 	end
 end
