@@ -1,6 +1,5 @@
 class CardsController < ApplicationController
 	before_action :set_payjp,only: [:index,:destroy]
-	require 'payjp'
 	include CardsHelper
 
 	def index
@@ -23,8 +22,7 @@ class CardsController < ApplicationController
 	end
 
 	def destroy
-		@card.destroy
-		@customer.delete
+		@card.delete_payjp(@customer)
 		redirect_to current_user
 		flash[:danger] = "カード情報を削除しました"
 	end

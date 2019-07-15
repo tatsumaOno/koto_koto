@@ -16,10 +16,14 @@
 					= link_to service_path(@service),method: :delete,class: "myservice_top_sec_r_buy_delete",data: { confirm: "削除してもよろしいですか？" }
 						i.fas.fa-trash
 						span 削除する
+				- elsif @service.work == 'demand'
+					= link_to root_path,class: "myservice_top_sec_r_buy_button",data: { confirm: "お手伝いしますか？" }
+						i.fas.fa-hands-helping
+						span 手助けする
 				- else
-					= link_to root_path,class: "myservice_top_sec_r_buy_button"
+					= link_to service_agreements_path(@service),method: :post,class: "myservice_top_sec_r_buy_button",data: { confirm: "購入を確定しますか？" }
 						i.fas.fa-shopping-cart
-						span 購入申請
+						span 購入する
 .myservice_contents.uk-container.uk-width-1-1
 	.myservice_contents_data.uk-grid.uk-flex-center
 		.myservice_contents_data_sec.uk-width-2-3

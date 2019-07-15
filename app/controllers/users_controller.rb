@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   before_action :logged_in_user,only: [:edit,:update,:discord] 
   before_action :correct_user,only: [:show,:edit,:update,:discord,:destroy]
 
-  require 'payjp'
-
   def new
     @user = User.new
   end
@@ -48,7 +46,7 @@ class UsersController < ApplicationController
     log_out if logged_in?
     if @card = Card.find_by(user_id: @user.id)
       @customer = Card.set_customer(@card)
-      @customer.delete
+      @card.delete_payjp(@customer)
     end
     @user.destroy
     flash[:alert] = "退会しました"
