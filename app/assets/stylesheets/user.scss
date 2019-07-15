@@ -233,6 +233,54 @@
 				}
 			}
 		}
+		//credit_show
+		&_show{
+			h2{
+				text-align: center;
+			}
+			&_inner{
+				background-color: #F8F8F8;
+				max-width: 600px;
+				height: 200px;
+				margin: 0 auto;
+				padding: 20px;
+				&_head{
+					display: flex;
+					margin: 20px 0;
+					.fa-credit-card{
+						color: red;
+						font-size: 20px;
+						margin-right: 10px;
+						line-height: 28px;
+					}
+					h3{
+						font-size: 20px;
+						margin: 0;
+					}
+				}
+				&_cont{
+					display: flex;
+					justify-content: space-around;
+					&_num{
+						h5{
+							font-size: 15px;
+							font-weight: bold;
+						}
+						input{
+							color: red;
+							border: 1px solid red;
+							margin-top: 30px;
+							padding: 10px 20px;
+							&:hover{
+								background-color: red;
+								color: #fff;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 }

@@ -30,11 +30,10 @@ class UsersController < ApplicationController
   def update
     if @user.update(edit_user_params)
       if @card = Card.find_by(user_id: @user.id)
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        customer.email = @user.email
-        customer.save
+        @customer = Card.set_customer(@card)
+        @customer.email = @user.email
+        @customer.save
       end
-      #メソッド化したい
       flash[:success] = "ユーザー情報を更新しました"
       redirect_to @user
     else
@@ -48,10 +47,9 @@ class UsersController < ApplicationController
   def destroy
     log_out if logged_in?
     if @card = Card.find_by(user_id: @user.id)
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      customer.delete
+      @customer = Card.set_customer(@card)
+      @customer.delete
     end
-    #メソッド化したい
     @user.destroy
     flash[:alert] = "退会しました"
     redirect_to root_path
