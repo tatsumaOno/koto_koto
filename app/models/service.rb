@@ -19,4 +19,14 @@ class Service < ApplicationRecord
 	def image_should_be_presence
 		errors.add(:image,:presence) unless image.attached?
 	end
+
+	def contract_status
+		case self.progress
+		when '契約前'
+			self.progress = "契約中"
+		when '契約中'
+			self.prgress = "契約完了"
+		end
+		self.save
+	end
 end

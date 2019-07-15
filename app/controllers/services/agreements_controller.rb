@@ -5,8 +5,7 @@ class Services::AgreementsController < ApplicationController
 		if @card && @service.work == 'supply'
 			@customer = Card.set_customer(@card)
 			Card.create_charge(@customer,@service)
-			@service.progress = "契約中"
-			@service.save
+			@service.contract_status
 			redirect_to root_path
 			flash[:success] = "購入が完了しました"
 		end
