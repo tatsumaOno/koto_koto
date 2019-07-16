@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_070313) do
+ActiveRecord::Schema.define(version: 2019_07_16_150351) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,21 @@ ActiveRecord::Schema.define(version: 2019_07_15_070313) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "detail"
@@ -105,6 +120,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_070313) do
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "services"
   add_foreign_key "comments", "users"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
   add_foreign_key "services", "areas"
   add_foreign_key "services", "categories"
 end
