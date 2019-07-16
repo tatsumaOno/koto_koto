@@ -12,7 +12,12 @@ class User < ApplicationRecord
 	has_many :services, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	has_many :cards,dependent: :destroy
+	has_many :room_users
+	has_many :rooms,through: :room_users
+	has_many :messages
+	
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
+
 	before_save :downcase_email
 	before_create :create_activation_digest
 
