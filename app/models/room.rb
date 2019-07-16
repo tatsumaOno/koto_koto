@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
 	has_many :room_users
 	has_many :users,through: :room_users
+	has_many :messages
 
 	def self.create_room(service,buy_user)
 		sell_user = service.user
