@@ -1,0 +1,18 @@
+= render partial: 'parts/common_header'
+= render partial: "parts/flash"
+.room
+	.room_first.uk-container
+		= form_with(model: [@room,@message]) do |f|
+			= f.text_area :content
+			= f.submit "送信",class: "room_submit"
+	/ .room_content
+	/ 	.room_content_top
+	/ 		h4
+    / 			= @message.user.nickname
+	/ 		p
+	/ 			= @message.created_at
+	/ 	.chat__text
+	/ 		- if @message.content.present?
+	/ 			p
+	/ 				= @message.content
+= render partial: 'parts/footer'

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :cards
+  resources :rooms do
+    resources :messages
+  end
 
   resources :account_activations,only: [:edit]
   resources :password_resets,only: [:new,:create,:edit,:update]
