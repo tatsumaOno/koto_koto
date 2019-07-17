@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @demand_services = @user.services.where(work: "demand")
     @supply_services = @user.services.where(work: "supply")
+    @rooms = @user.rooms
   end
 
   def edit

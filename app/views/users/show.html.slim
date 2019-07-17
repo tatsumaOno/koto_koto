@@ -29,23 +29,21 @@
 							= display_score(current_user)
 						p 現在のスコア
 			.mypage_sec_l_tags
-				= link_to root_path,class: "tag tag-active" do
-					span リクエスト
-				= link_to root_path,class: "tag" do
-					span コメント
-				= link_to root_path,class: "tag" do
-					span チャットORスキル
+				ul.uk-child-width-expand[uk-tab]
+					li
+						= link_to "契約前(困りごと)"
+					li
+						= link_to "契約前(スキル)"
+					li
+						= link_to "契約中(チャット)"
+					li
+						= link_to "契約完了"
+			.mypage_sec_l_tablelist.show
+				= render 'before_contract', services: @demand_services
 			.mypage_sec_l_tablelist
-				- @services.each do |service|
-					article
-						= user_show_image(current_user)
-						.article_body
-							.article_body_info
-								p 
-									= simple_time(service.created_at)
-							.article_body_title
-								= link_to "#{service.title}",service_path(service)
-							.article_body_link
-								= link_to "編集",edit_service_path(service),class: "article_body_link_edit"
-								= link_to "削除",service_path(service),method: :delete,class: "article_body_link_delete",data: { confirm: "削除してもよろしいですか？" }
+				= render 'before_contract', services: @supply_services
+			.mypage_sec_l_tablelist
+				= render 'under_contract', rooms: @rooms
+			.mypage_sec_l_tablelist
+			//のちに追加
 = render partial: 'parts/footer'

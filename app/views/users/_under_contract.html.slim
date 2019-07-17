@@ -1,0 +1,9 @@
+- rooms.each do |room|
+	article
+		= image_tag("user_default.jpeg")
+		.article_body
+			.article_body_info
+				p 
+					= simple_time(room.created_at)
+			.article_body_title
+				= link_to "#{room.name}のチャットルーム",root_path
