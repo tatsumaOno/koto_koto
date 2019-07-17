@@ -84,28 +84,11 @@
 					}
 				}
 			}
-			&_tags{
-				display: flex;
-				justify-content: space-between;
-				a{
-					text-align: center;
-					width: calc(100% / 3);
-					height: 50px;
-					line-height: 50px;
-					padding: 10px;
-					color: #000;
-					&:hover{
-						background-color: #D3D3D3;
-						border-top: 3px solid rgb(255, 215, 0);
-						text-decoration: none;
-					}
-				}
-			}
-			.tag-active{
-				background-color: #D3D3D3;
-				border-top: 3px solid rgb(255, 215, 0);
+			.show{
+				display: block;
 			}
 			&_tablelist{
+				display:none;
 				article{
 					display: flex;
 					padding: 10px 10px 15px 10px;
