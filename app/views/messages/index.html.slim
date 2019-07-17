@@ -1,0 +1,21 @@
+= render partial: 'parts/common_header'
+= render partial: "parts/flash"
+.room
+	.room_first.uk-container
+		= form_with(model: [@room,@message]) do |f|
+			= f.text_area :content
+			= f.submit "送信",class: "room_submit"
+	.room_body
+		- @messages.each do |message|
+			.room_body_mes
+				.room_body_mes_top
+					= user_show_image(message.user)
+					p
+						= message.created_at.strftime("%m/%d %H:%M")
+				.room_body_mes_cont
+					- if message.content.present?
+						p
+							= message.content
+			.room_body_del
+				= link_to "削除",room_message_path(message),method: :delete
+= render partial: 'parts/footer'
