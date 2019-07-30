@@ -17,5 +17,5 @@
 						p
 							= message.content
 			.room_body_del
-				= link_to "削除",room_message_path(message),method: :delete
+				= link_to "削除",room_message_path(message,@room),method: :delete
 = render partial: 'parts/footer'
