@@ -17,5 +17,6 @@
 						p
 							= message.content
 			.room_body_del
-				= link_to "削除",room_message_path(message),method: :delete
+				- if message.user_id == current_user.id
+					= link_to "削除",room_message_path(@room,message),method: :delete
 = render partial: 'parts/footer'

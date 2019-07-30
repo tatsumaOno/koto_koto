@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 	before_action :set_room
 	def index
 		@message = Message.new()
-		@messages = @room.messages.includes(:user)
+		@messages = @room.messages.includes(:user).order('created_at DESC')
 	end
 
 	def create
@@ -15,6 +15,11 @@ class MessagesController < ApplicationController
 	end
 
 	def destroy
+		@message = Message.find(params[:id])
+		if @message.user_id == current_user.id
+			@message.destroy
+			redirect_to room_messages_path(@room)
+		end
 	end
 
 private
