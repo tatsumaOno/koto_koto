@@ -15,7 +15,11 @@ class MessagesController < ApplicationController
 	end
 
 	def destroy
-		binding.pry
+		@message = Message.find(params[:id])
+		if @message.user_id == current_user.id
+			@message.destroy
+			redirect_to room_messages_path(@room)
+		end
 	end
 
 private
