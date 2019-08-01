@@ -6,8 +6,6 @@ class Services::AgreementsController < ApplicationController
 			@customer = Card.set_customer(@card)
 			Card.create_charge(@customer,@service)
 			@service.contract_status
-			# redirect_to root_path
-			# flash[:success] = "購入が完了しました"
 		end
 		Room.create_room(@service,current_user)
 		redirect_to root_path
