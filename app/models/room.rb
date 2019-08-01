@@ -3,10 +3,14 @@ class Room < ApplicationRecord
 	has_many :users,through: :room_users
 	has_many :messages
 
-	def self.create_room(service,buy_user)
-		sell_user = service.user
-		@room = Room.new(name: service.title)
-		@room.users << [sell_user,buy_user]
+	def self.create_room(service,send_user)
+		receive_user = service.user
+		if service.work == "supply"
+			@room = Room.new(name: service.title,push_user: send_user.id)
+		elsif service.work == "demand"
+			@room = Room.new(name: service.title,push_user: receive_user.id)
+		end
+		@room.users << [receive_user,send_user]
 		@room.save
 	end
 end

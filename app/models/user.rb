@@ -14,7 +14,7 @@ class User < ApplicationRecord
 	has_many :cards,dependent: :destroy
 	has_many :room_users
 	has_many :rooms,through: :room_users
-	has_many :messages
+	has_many :messages,dependent: :destroy
 	
 	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
 

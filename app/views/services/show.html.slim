@@ -17,9 +17,9 @@
 						i.fas.fa-trash
 						span 削除する
 				- elsif @service.work == 'demand'
-					= link_to root_path,class: "myservice_top_sec_r_buy_button",data: { confirm: "お手伝いしますか？" }
+					= link_to service_agreements_path(@service),method: :post,class: "myservice_top_sec_r_buy_button",data: { confirm: "お手伝いしますか？" }
 						i.fas.fa-hands-helping
-						span 手助けする
+						span 力になる
 				- else
 					= link_to service_agreements_path(@service),method: :post,class: "myservice_top_sec_r_buy_button",data: { confirm: "購入を確定しますか？" }
 						i.fas.fa-shopping-cart
