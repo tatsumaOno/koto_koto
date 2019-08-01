@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :cards
+  
   resources :rooms do
-    resources :messages
+    resources :messages,only: [:index,:create,:destroy]
   end
 
   resources :account_activations,only: [:edit]
