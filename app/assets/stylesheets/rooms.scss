@@ -1,6 +1,6 @@
 @import 'mixin';
 .room{
-	height: 500px;
+	min-height: 500px;
 	padding: 50px 0;
 	background-color: #fcfcf0;
 	&_first{
@@ -45,6 +45,9 @@
 		margin: 50px auto;
 		background-color: #fff;
 		&_mes{
+			&:first-child{
+				margin-top: 150px;
+			}
 			display: flex;
 			padding: 20px 20px 0 20px;
 			height: 150px;
