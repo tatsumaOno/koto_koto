@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: koto_koto_production
-  username: koto_koto
-  password: <%= ENV['KOTO_KOTO_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
