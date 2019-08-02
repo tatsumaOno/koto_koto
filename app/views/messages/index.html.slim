@@ -2,6 +2,11 @@
 = render partial: "parts/flash"
 .room
 	.room_first.uk-container
+		.room_first_exa
+			p 相手と連絡を取り合って円滑に進めよう！
+			p 契約が無事完了したら、マイページのチャットルーム欄から完了ボタンを押してください。
+			span 注) 
+				完了ボタンは評価者のみの仕様になります。
 		= form_with(model: [@room,@message]) do |f|
 			= f.text_area :content
 			= f.submit "送信",class: "room_submit"

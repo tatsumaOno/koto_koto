@@ -1,10 +1,18 @@
 @import 'mixin';
 .room{
+	min-height: 500px;
 	padding: 50px 0;
 	background-color: #fcfcf0;
 	&_first{
 		width: 80%;
 		height: 300px;
+		&_exa{
+			color: #8f8f8f;
+			span{
+				color: red;
+			}
+			margin-bottom: 20px;
+		}
 		form{
 			display: flex;
 			flex-direction: column;
@@ -37,6 +45,9 @@
 		margin: 50px auto;
 		background-color: #fff;
 		&_mes{
+			&:first-child{
+				margin-top: 150px;
+			}
 			display: flex;
 			padding: 20px 20px 0 20px;
 			height: 150px;

@@ -7,3 +7,6 @@
 					= simple_time(room.created_at)
 			.article_body_title
 				= link_to "#{room.name}のチャットルーム",room_messages_path(room)
+		.article_fin
+			- if room.push_user == current_user.id
+				= link_to "完了にする"
