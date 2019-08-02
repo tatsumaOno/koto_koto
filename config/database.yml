@@ -52,3 +52,4 @@ production:
   database: koto_koto_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
