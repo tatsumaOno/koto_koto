@@ -14,5 +14,11 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+//= require uikit
+//= require jquery
+//= require rails-ujs
+//= require activestorage
+//= require uikit/dist/js/uikit.min
+//= require uikit/dist/js/uikit-icons.min.js
+//= require_tree .
 console.log('Hello World from Webpacker')
