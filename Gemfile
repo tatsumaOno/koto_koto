@@ -73,7 +73,6 @@ gem 'uikit-rails'
 gem 'jquery-rails'
 gem 'bcrypt','<= 3.1.12'
 gem 'font-awesome-sass'
-gem 'webpacker', github: 'rails/webpacker'
 gem 'foreman'
 gem 'rails-i18n'
 gem "aws-sdk-s3", require: false
