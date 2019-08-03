@@ -14,6 +14,5 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require uikit/dist/js/uikit.min
 //= require uikit/dist/js/uikit-icons.min.js
 //= require_tree .
