@@ -30,20 +30,37 @@
 						p 現在のスコア
 			.mypage_sec_l_tags
 				ul.uk-child-width-expand[uk-tab]
-					li
+					<li v-on:click="change('1')">
 						= link_to "契約前(困りごと)"
-					li
+					</li>
+					<li v-on:click="change('2')">
 						= link_to "契約前(スキル)"
-					li
+					</li>
+					<li v-on:click="change('3')">
 						= link_to "契約中(チャット)"
-					li
+					</li>
+					<li v-on:click="change('4')">
 						= link_to "契約完了"
-			.mypage_sec_l_tablelist.show
+					</li>
+			<div class ="mypage_sec_l_tablelist" v-if="isActive === '1'" v-bind:class="{'show': isActive === '1'}">
 				= render 'before_contract', services: @demand_services
-			.mypage_sec_l_tablelist
+			</div>
+			<div class ="mypage_sec_l_tablelist" v-else-if="isActive === '2'" v-bind:class="{'show': isActive === '2'}">
 				= render 'before_contract', services: @supply_services
-			.mypage_sec_l_tablelist
+			</div>
+			<div class ="mypage_sec_l_tablelist" v-else-if="isActive === '3'" v-bind:class="{'show': isActive === '3'}">
 				= render 'under_contract', rooms: @rooms
-			.mypage_sec_l_tablelist
+			</div>
+			<div class ="mypage_sec_l_tablelist" v-if="isActive === '4'" v-bind:class="{'show': isActive === '4'}">
+				//のち追加
+			</div>
+			/ .mypage_sec_l_tablelist[v-if="isActive === '1'"]
+			/ = render 'before_contract', services: @demand_services
+			/ .mypage_sec_l_tablelist[v-else-if="isActive === '2'"]
+			/ 	= render 'before_contract', services: @supply_services
+			/ .mypage_sec_l_tablelist[v-else-if="isActive === '3'"]
+			/ 	= render 'under_contract', rooms: @rooms
+			/ .mypage_sec_l_tablelist
 			//のちに追加
+
 = render partial: 'parts/footer'
