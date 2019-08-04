@@ -5,7 +5,8 @@
 			i.fas.fa-unlock-alt
 		h1 パスワード設定
 	= form_for(@user,url: password_reset_path(params[:id])) do |f|
-		= render 'parts/error_messages'
+		= render 'parts/error_messages',model: f.object
+		= hidden_field_tag :email, @user.email
 		.password_reset_form
 			= f.label :password
 			= f.password_field :password
