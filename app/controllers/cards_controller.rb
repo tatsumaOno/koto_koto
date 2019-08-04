@@ -22,9 +22,10 @@ class CardsController < ApplicationController
 	end
 
 	def destroy
-		@card.delete_payjp(@customer)
-		redirect_to current_user
-		flash[:danger] = "カード情報を削除しました"
+		if @card.delete_payjp(@customer)
+			redirect_to user_path(current_user.id)
+			flash[:danger] = "カード情報を削除しました"
+		end
 	end
 
 private
