@@ -18,7 +18,7 @@ class Services::AgreementsController < ApplicationController
 		if @service && @room.activated == true
 			@service.contract_status
 			@room.change_activated
-			redirect_to new_service_evaluate_path(@service)
+			redirect_to new_user_evaluate_path(current_user)
 		else
 			redirect_to current_user
 		end

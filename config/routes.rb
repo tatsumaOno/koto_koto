@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get :discard
     end
+    resources :evaluates, only: [:new,:create], module: 'users'
   end
 
   resources :services do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
       post :supply_create
     end
     resources :agreements, only: [:create,:update], module: 'services'
-    resources :evaluates, only: [:new,:create], module: 'services'
     resources :comments,only: [:create]
   end
 
