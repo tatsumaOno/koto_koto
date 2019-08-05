@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @demand_services = @user.services.where(work: "demand")
     @supply_services = @user.services.where(work: "supply")
     @rooms = @user.rooms.where(activated: true)
+    @finish_services = @user.services.where(progress: "契約完了")
   end
 
   def edit
