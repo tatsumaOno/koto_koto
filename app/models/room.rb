@@ -13,4 +13,9 @@ class Room < ApplicationRecord
 		@room.users << [receive_user,send_user]
 		@room.save
 	end
+
+	def room_service(current_user)
+		@service = current_user.services.find_by(title: self.name)
+		session[:service_id] = @service.id
+	end
 end

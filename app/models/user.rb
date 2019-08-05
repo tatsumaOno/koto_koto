@@ -43,7 +43,6 @@ class User < ApplicationRecord
 		BCrypt::Password.new(digest).is_password?(token) #digestとtokenを比較して同じかどうか
 	end
 
-	#?
 	def forget
 		update_attribute(:remember_digest,nil)
 	end

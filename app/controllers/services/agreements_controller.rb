@@ -12,6 +12,9 @@ class Services::AgreementsController < ApplicationController
 		flash[:success] = "購入が完了しました。チャットルームを作成しましたので、連絡を取り合いましょう"
 	end
 
+	def update
+	end
+
 
 private
 	def have_a_card
