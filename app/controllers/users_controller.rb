@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @demand_services = @user.services.where(work: "demand")
-    @supply_services = @user.services.where(work: "supply")
+    @demand_services = @user.services.where(work: "demand",progress: "契約前")
+    @supply_services = @user.services.where(work: "supply",progress: "契約前")
     @rooms = @user.rooms.where(activated: true)
     @finish_services = @user.services.where(progress: "契約完了")
   end
