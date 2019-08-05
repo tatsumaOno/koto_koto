@@ -19,7 +19,7 @@ class Room < ApplicationRecord
 		@service = Service.find(self.service_id)
 	end
 
-	def fin_activated
+	def change_activated
 		self.activated = false
 		self.save
 	end
