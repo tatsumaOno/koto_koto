@@ -13,6 +13,15 @@ class Services::AgreementsController < ApplicationController
 	end
 
 	def update
+		@service = Service.find(params[:service_id])
+		@room = Room.find(params[:id]) 
+		if @service && @room.activated == true
+			@service.contract_status
+			@room.fin_activated
+			redirect_to root_path
+		else
+			redirect_to current_user
+		end
 	end
 
 

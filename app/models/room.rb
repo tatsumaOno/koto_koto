@@ -14,4 +14,13 @@ class Room < ApplicationRecord
 		@room.users << [receive_user,send_user]
 		@room.save
 	end
+
+	def find_service_id
+		@service = Service.find(self.service_id)
+	end
+
+	def fin_activated
+		self.activated = false
+		self.save
+	end
 end
