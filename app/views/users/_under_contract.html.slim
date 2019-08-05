@@ -8,5 +8,5 @@
 			.article_body_title
 				= link_to "#{room.name}のチャットルーム",room_messages_path(room)
 		.article_fin
-			- if room.push_user == current_user.id
-				= link_to "完了にする",service_agreement_path(room.room_service(current_user),room)
+			- if room.rated_user == current_user.id
+				= link_to "完了にする",root_path

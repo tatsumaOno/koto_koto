@@ -9,6 +9,7 @@ class Service < ApplicationRecord
 
 	has_one_attached :image
 	has_many   :comments, dependent: :destroy
+	has_many   :rooms
 
 	belongs_to :user
 	belongs_to :area
