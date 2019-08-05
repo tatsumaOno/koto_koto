@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       post :demand_create
       post :supply_create
     end
-    resources :agreements, only: [:create], module: 'services'
+    resources :agreements, only: [:create,:update], module: 'services'
     resources :comments,only: [:create]
   end
 

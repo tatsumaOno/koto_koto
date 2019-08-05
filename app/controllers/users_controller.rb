@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   def show
     @demand_services = @user.services.where(work: "demand")
     @supply_services = @user.services.where(work: "supply")
-    @rooms = @user.rooms
+    @rooms = @user.rooms.where(activated: true)
+    @finish_services = @user.services.where(progress: "契約完了")
   end
 
   def edit
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def discard
+  def discard #退会機能
   end
 
   def destroy

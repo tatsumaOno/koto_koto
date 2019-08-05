@@ -12,6 +12,18 @@ class Services::AgreementsController < ApplicationController
 		flash[:success] = "購入が完了しました。チャットルームを作成しましたので、連絡を取り合いましょう"
 	end
 
+	def update
+		@service = Service.find(params[:service_id])
+		@room = Room.find(params[:id]) 
+		if @service && @room.activated == true
+			@service.contract_status
+			@room.fin_activated
+			redirect_to root_path
+		else
+			redirect_to current_user
+		end
+	end
+
 
 private
 	def have_a_card
