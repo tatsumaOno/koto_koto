@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def discard
+  def discard #退会機能
   end
 
   def destroy
