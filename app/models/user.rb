@@ -16,7 +16,7 @@ class User < ApplicationRecord
 	has_many :rooms,through: :room_users
 	has_many :messages,dependent: :destroy
 	
-	attr_accessor :remember_token,:activation_token,:reset_token,:support,:satisfaction # 仮想の属性
+	attr_accessor :remember_token,:activation_token,:reset_token,:support_point,:satisfaction_point # 仮想の属性
 
 	before_save :downcase_email
 	before_create :create_activation_digest
@@ -60,6 +60,30 @@ class User < ApplicationRecord
 
 	def password_reset_expired?
 		reset_sent_at < 2.hours.ago
+	end
+
+	def place_value(support,satisfaction)
+		self.support_point = support
+		self.satisfaction_point = satisfaction
+	end
+
+	def create_confidence_score #信頼スコア作成
+		self.score += (self.support_point.to_i + self.satisfaction_point.to_i) * 2
+	end
+
+	def create_point #所持ポイント作成
+		if 500 < score
+			self.point += self.score * 5
+		elsif 200 < self.score
+			self.point += self.score * 4
+		elsif 100 < self.score
+			self.point += self.score * 3
+		elsif 50 < self.score
+			self.point += self.score * 2
+		else
+			self.point += self.score
+		end
+		self.save
 	end
 
 private

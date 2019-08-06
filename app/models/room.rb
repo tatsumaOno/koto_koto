@@ -4,14 +4,14 @@ class Room < ApplicationRecord
 	has_many :messages
 	belongs_to :service
 
-	def self.create_room(service,send_user)
-		receive_user = service.user
-		if service.work == "supply"
-			@room = Room.new(name: service.title,rated_user: send_user.id,service_id: service.id)
-		elsif service.work == "demand"
-			@room = Room.new(name: service.title,rated_user: receive_user.id,service_id: service.id)
+	def self.create_room(service,push_user)
+		be_pushed_user = service.user
+		if service.work == "demand"
+			@room = Room.new(name: service.title,rated_user: push_user.id,service_id: service.id)
+		elsif service.work == "supply"
+			@room = Room.new(name: service.title,rated_user: be_pushed_user.id,service_id: service.id)
 		end
-		@room.users << [receive_user,send_user]
+		@room.users << [be_pushed_user,push_user]
 		@room.save
 	end
 
