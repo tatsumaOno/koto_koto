@@ -10,7 +10,7 @@
 					i.fas.fa-credit-card
 					span
 						h3 クレジットカード情報
-				= form_with url: card_path(@card), method: :delete,class: "mypage_sec_show_inner_cont" do |f|
+				= form_with url: card_path(@card), local: true, method: :delete,class: "mypage_sec_show_inner_cont" do |f|
 					.mypage_sec_show_inner_cont_num
 						h5 カード情報
 						p

@@ -8,7 +8,7 @@ class Services::AgreementsController < ApplicationController
 		end
 		@service.contract_status
 		Room.create_room(@service,current_user)
-		redirect_to root_path
+		redirect_to current_user
 		flash[:success] = "購入が完了しました。チャットルームを作成しましたので、連絡を取り合いましょう"
 	end
 
