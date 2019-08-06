@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   
   resources :rooms do
     resources :messages,only: [:index,:create,:destroy]
+    resources :evaluates, only: [:new,:create], module: 'rooms'
   end
 
   resources :account_activations,only: [:edit]

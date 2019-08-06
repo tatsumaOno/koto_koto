@@ -17,8 +17,8 @@ class Services::AgreementsController < ApplicationController
 		@room = Room.find(params[:id]) 
 		if @service && @room.activated == true
 			@service.contract_status
-			@room.fin_activated
-			redirect_to root_path
+			@room.change_activated
+			redirect_to new_room_evaluate_path(@room)
 		else
 			redirect_to current_user
 		end

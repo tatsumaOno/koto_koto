@@ -16,7 +16,7 @@ class User < ApplicationRecord
 	has_many :rooms,through: :room_users
 	has_many :messages,dependent: :destroy
 	
-	attr_accessor :remember_token,:activation_token,:reset_token # 仮想の属性
+	attr_accessor :remember_token,:activation_token,:reset_token,:support,:satisfaction # 仮想の属性
 
 	before_save :downcase_email
 	before_create :create_activation_digest
