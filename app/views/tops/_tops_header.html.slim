@@ -35,10 +35,10 @@
 		p 日々の小さな悩みを助け合うアプリです。
 		.header-contents__buttons
 			- if logged_in?
-				= form_with url: login_path do |f|
-					= f.text_field :keyword,placeholder: "検索する",class: "header-contents__buttons__search"
-					= button_tag type: "submit",class: "header-contents__buttons__search__button" do
-						i.fa.fa-search
+				/ = form_with url: login_path do |f|
+				/ 	= f.text_field :keyword,placeholder: "検索する",class: "header-contents__buttons__search"
+				/ 	= button_tag type: "submit",class: "header-contents__buttons__search__button" do
+				/ 		i.fa.fa-search
 				.header-contents__buttons__click
 					= link_to "スキルを出品する",supply_services_path,class: "header-contents__buttons__click__supply"
 					= link_to "悩み事を出品する",demand_services_path,class: "header-contents__buttons__click__demand"
