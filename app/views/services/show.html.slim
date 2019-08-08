@@ -66,10 +66,11 @@
 			h2 公開コメント
 			.myservice_contents_comment_title
 				h4 公開コメントを追加する
-				= form_with(model: [@service,@comment]) do |f|
+				= form_with model: [@service,@comment],local: true do |f|
 					= f.text_area :detail
 					small 50文字以内
 					= f.submit "送信する",class: "replybutton"
+					/ <button type="button" v-on:click="click(#{@service.id})">送信</button>
 			.myservice_contents_comment_form
 		.myservice_contents_comment.uk-width-2-3
 			h2 コメント一覧	
@@ -90,3 +91,4 @@
 						p
 							= comment.detail
 = render partial: 'parts/footer'
+= javascript_pack_tag "comment_create"
