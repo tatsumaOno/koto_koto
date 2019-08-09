@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   before_action :correct_user,only: [:demand,:demand_create,:supply,:supply_create,:edit,:update,:destroy]
   before_action :find_service,only: [:show,:edit,:update,:destroy]
 
-  def demand #悩み
+  def demand
     @service = Service.new()
   end
 
@@ -33,7 +33,7 @@ class ServicesController < ApplicationController
 
   def show 
     @comment = Comment.new()
-    @comments = Comment.includes(:user).where(service_id: @service.id).order(created_at: :asc)
+    @comments = Comment.includes(:user).where(service_id: @service.id).recent(10)
   end
 
   def edit

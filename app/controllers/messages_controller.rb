@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 	before_action :set_room
 	def index
 		@message = Message.new()
-		@messages = @room.messages.includes(:user).order('created_at DESC')
+		@messages = @room.messages.includes(:user).recent(20)
 	end
 
 	def create
