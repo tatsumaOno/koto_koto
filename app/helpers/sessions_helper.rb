@@ -32,26 +32,13 @@ module SessionsHelper
 		cookies.delete(:remember_token)
 	end
 
-	#ログインしているかどうか
 	def logged_in?
 		!current_user.nil?
 	end
 
-	#ログアウト
 	def log_out
 		forget(current_user)
-		session.delete(:user_id) #sessionを削除
+		session.delete(:user_id)
 		@current_user = nil
 	end
-
-	#ユーザーの行き先をsessionに加えている
-	# def store_location
-	# 	session[:forwarding_url] = request_original_url if request.get? #request_original_urlでリクエスト先を取得
-	# end
-
-	#ユーザーの行き先を保存
-	# def request_back_or(default)
-	# 	redirect_to(session[:forwarding_url] || default)
-	# 	session.delete(:forwarding_url)
-	# end
 end

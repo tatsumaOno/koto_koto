@@ -3,7 +3,7 @@ class Services::AgreementsController < ApplicationController
 	def create
 		@service = Service.find(params[:service_id])
 		if @card && @service.work == 'supply'
-			@customer = Card.set_customer(@card)
+			@customer = @card.set_customer
 			Card.create_charge(@customer,@service)
 		end
 		@service.contract_status

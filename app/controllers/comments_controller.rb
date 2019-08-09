@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 	end
 
 private
-	def get_service #find_serviceと変わらない
+	def get_service
 		@service = Service.find(params[:service_id])
 	end
 	  

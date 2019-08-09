@@ -31,6 +31,6 @@ class CardsController < ApplicationController
 private
 	def set_payjp
 		@card = Card.find_by(user_id: current_user.id)
-		@customer = Card.set_customer(@card)
+		@customer = @card.set_customer
 	end
 end

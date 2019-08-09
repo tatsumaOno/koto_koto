@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @demand_services = @user.services.where(work: "demand",progress: "契約前")
-    @supply_services = @user.services.where(work: "supply",progress: "契約前")
+    @demand_services = @user.services.with_contract(0)
+    @supply_services = @user.services.with_contract(1)
     @rooms = @user.rooms.where(activated: true)
     @finish_services = @user.services.where(progress: "契約完了")
   end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(edit_user_params)
       if @card = Card.find_by(user_id: @user.id)
-        @customer = Card.set_customer(@card)
+        @customer = @card.set_customer
         @customer.email = @user.email
         @customer.save
       end
@@ -42,13 +42,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def discard #退会機能
+  def discard
   end
 
   def destroy
     log_out if logged_in?
     if @card = Card.find_by(user_id: @user.id)
-      @customer = Card.set_customer(@card)
+      @customer = @card.set_customer
       @card.delete_payjp(@customer)
     end
     @user.destroy
