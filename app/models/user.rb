@@ -67,11 +67,11 @@ class User < ApplicationRecord
 		self.satisfaction_point = satisfaction.to_i
 	end
 
-	def create_confidence_score #信頼スコア作成
+	def create_confidence_score
 		self.score += (self.support_point + self.satisfaction_point) * 2
 	end
 
-	def create_point #所持ポイント作成
+	def create_point
 		if 500 < score
 			self.point += self.score * 5
 		elsif 200 < self.score
