@@ -63,12 +63,12 @@ class User < ApplicationRecord
 	end
 
 	def place_value(support,satisfaction)
-		self.support_point = support
-		self.satisfaction_point = satisfaction
+		self.support_point = support.to_i
+		self.satisfaction_point = satisfaction.to_i
 	end
 
 	def create_confidence_score #信頼スコア作成
-		self.score += (self.support_point.to_i + self.satisfaction_point.to_i) * 2
+		self.score += (self.support_point + self.satisfaction_point) * 2
 	end
 
 	def create_point #所持ポイント作成
