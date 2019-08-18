@@ -1,4 +1,4 @@
-= form_with url: room_evaluates_path(@room) do |f|
+= form_with url: room_evaluates_path(@room),local: true do |f|
 	.evaluate_form
 		p 対応が良かったか
 		= f.radio_button :support,1
