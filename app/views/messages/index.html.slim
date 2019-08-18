@@ -7,7 +7,7 @@
 			p 契約が無事完了したら、マイページのチャットルーム欄から完了ボタンを押してください。
 			span 注) 
 				完了ボタンは評価者のみの仕様になります。
-		= form_with(model: [@room,@message]) do |f|
+		= form_with model: [@room,@message],local: true do |f|
 			= f.text_area :content
 			= f.submit "送信",class: "room_submit"
 	.room_body
