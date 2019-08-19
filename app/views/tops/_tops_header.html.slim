@@ -20,6 +20,12 @@
 										= link_to "新規登録",new_user_path
 									li
 										= link_to "ログイン",login_path
+									li.uk-nav-divider
+										= form_for(:session,url:login_path) do |f|
+											= f.hidden_field :email, value: "test2daruma@gmail.com"
+											= f.hidden_field :password , value: "1234567"
+											= f.hidden_field :remember_me, value: "0"
+											= f.submit "簡単ログイン",class: "easy-login"
 					li
 						= link_to "Service",root_path,class: "nav-color"
 						.uk-navbar-dropdown

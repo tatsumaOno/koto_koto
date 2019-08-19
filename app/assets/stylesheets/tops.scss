@@ -8,14 +8,22 @@
 		display: block;
  		opacity: .6;
 	}
-	//修正箇所
 	.nav-color{
 		color: rgba(255, 255, 255,0.8) !important;
 	}
 	.uk-open{
 		color: #ffffff !important;
 	}
-	//
+	.easy-login{
+		border: none;
+		font-size: 14px;
+		color: rgba(153,153,153,1);
+		margin-top: 5px;
+		cursor: pointer;
+		&:hover{
+			color: #666;
+		}
+	}
 	.header-contents{
 		@include head_center(50%,50%);
 		h1{	
