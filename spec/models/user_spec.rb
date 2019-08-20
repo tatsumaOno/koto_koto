@@ -18,12 +18,12 @@ describe User do
    				 expect(@user.errors[:name]).to include("を入力してください")
    			end 
   			 it "名前が50文字以上" do
-   				 @user.name = 'a'*51
+   				 @user.name = 'a' * 51
    				 @user.valid?
    				 expect(@user.errors[:name]).to include("は50文字以内で入力してください")
    			end
   			 it "名前が50文字以下" do
-   				 @user.name = 'a'*50
+   				 @user.name = 'a' * 50
    				 expect(@user).to be_valid
    			end
   		end
@@ -35,12 +35,12 @@ describe User do
    				 expect(@user.errors[:email]).to include("を入力してください")
    			end
   			 it "アドレス100文字以上" do
-   				 @user.email = "a"*100+"@gmail.com"
+   				 @user.email = "a" * 100 + "@gmail.com"
    				 @user.valid?
    				 expect(@user.errors[:email]).to include("は100文字以内で入力してください")
    			end
   			 it "アドレス100文字以下" do
-   				 @user.email = "a"*90+"@gmail.com"
+   				 @user.email = "a" * 90 + "@gmail.com"
    				 expect(@user).to be_valid
    			end
   			 it "アドレス被り" do
