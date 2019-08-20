@@ -58,12 +58,13 @@ class ServicesController < ApplicationController
     end
   end
 
-private
-    def find_service
-      @service = Service.find(params[:id])
-    end
+  private
+  
+  def find_service
+    @service = Service.find(params[:id])
+  end
 
-    def service_params
-      params.require(:service).permit(:image,:title,:detail,:price,:time,:work,:area_id,:category_id).merge(user_id: current_user.id)
-    end
+  def service_params
+    params.require(:service).permit(:image,:title,:detail,:price,:time,:work,:area_id,:category_id).merge(user_id: current_user.id)
+  end
 end

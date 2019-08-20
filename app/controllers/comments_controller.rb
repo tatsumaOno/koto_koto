@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
 		end
 	end
 
-private
+  private
+  
 	def get_service
 		@service = Service.find(params[:service_id])
 	end

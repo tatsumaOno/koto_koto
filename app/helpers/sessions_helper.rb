@@ -1,8 +1,6 @@
 module SessionsHelper
-
 	def log_in(user)
-		session[:user_id] = user.id
-		#このsessionは作成したsessionとは別物
+		session[:user_id] = user.id #このsessionは作成したsessionとは別物
 	end
 	
 	#記憶する時の処理

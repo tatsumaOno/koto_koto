@@ -37,22 +37,22 @@ class PasswordResetsController < ApplicationController
 
   private
 
-    def reset_params
-      params.require(:user).permit(:password,:password_confirmation)
-    end
+  def reset_params
+    params.require(:user).permit(:password,:password_confirmation)
+  end
 
-    def get_user
-      @user = User.find_by(email: params[:email])
-    end
+  def get_user
+    @user = User.find_by(email: params[:email])
+  end
     
-    #有効なユーザーか確認
-    def valid_user
-      unless(@user && @user.activated? && @user.authenticated?(:reset,params[:id]))
-        redirect_to root_path
-      end
+  #有効なユーザーか確認
+  def valid_user
+    unless(@user && @user.activated? && @user.authenticated?(:reset,params[:id]))
+      redirect_to root_path
     end
+  end
 
-    def check_expiration
-      redirect_to new_password_reset_path if @user.password_reset_expired?
-    end
+  def check_expiration
+    redirect_to new_password_reset_path if @user.password_reset_expired?
+  end
 end

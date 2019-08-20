@@ -24,8 +24,8 @@ class Services::AgreementsController < ApplicationController
 		end
 	end
 
+  private
 
-private
 	def have_a_card
 		 @card = Card.find_by(user_id: current_user.id)
 		 if @card == nil

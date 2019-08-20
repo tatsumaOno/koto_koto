@@ -28,7 +28,8 @@ class CardsController < ApplicationController
 		end
 	end
 
-private
+  private
+  
 	def set_payjp
 		@card = Card.find_by(user_id: current_user.id)
 		@customer = @card.set_customer

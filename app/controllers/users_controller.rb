@@ -56,14 +56,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
-    def new_user_params
-      params.require(:user).permit(:name,:nickname,:email,:password,:password_confirmation)
-    end
+  def new_user_params
+    params.require(:user).permit(:name,:nickname,:email,:password,:password_confirmation)
+  end
 
-    def edit_user_params
-      params.require(:user).permit(:name,:nickname,:email,:introduction,:image)
-    end
+  def edit_user_params
+    params.require(:user).permit(:name,:nickname,:email,:introduction,:image)
+  end
 end

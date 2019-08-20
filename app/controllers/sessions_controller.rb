@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
     end
   end
   
-
   def destroy
     log_out if logged_in?
     flash[:alert] = "ログアウトしました"

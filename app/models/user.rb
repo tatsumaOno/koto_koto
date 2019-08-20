@@ -5,7 +5,7 @@ class User < ApplicationRecord
 	validates :email,                presence: true,length: {maximum: 100},format: {with: VALID_EMAIL_REGEX},uniqueness: true
 	validates :password,             presence: true,length: {minimum: 6},allow_nil: true
 	validates :password_confirmation,presence: true,allow_nil: true
-	validates :introduction,         length: {maximum: 200}
+	validates :introduction, length: {maximum: 200}
 	
 	has_secure_password #セキュアなパスワードを作成 password_digestカラム gem bcrypt
 	has_one_attached :image #activeStorage
@@ -40,6 +40,7 @@ class User < ApplicationRecord
 	def authenticated?(attribute,token)
 		digest = self.send("#{attribute}_digest") #send(:remember_digest)
 		return false if digest.nil?
+
 		BCrypt::Password.new(digest).is_password?(token) #digestとtokenを比較して同じかどうか
 	end
 
@@ -86,7 +87,8 @@ class User < ApplicationRecord
 		self.save
 	end
 
-private
+  private
+  
 	def create_activation_digest
 		self.activation_token = User.new_token
 		self.activation_digest = User.digest(activation_token)
