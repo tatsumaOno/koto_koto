@@ -30,25 +30,19 @@ Layout/EmptyLines:
     - 'config/deploy/production.rb'
     - 'config/deploy/staging.rb'
 
-# Offense count: 229
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-# Layout/IndentationWidth:
-#   Enabled: false
-
 # Offense count: 27
 # Cop supports --auto-correct.
 # Configuration parameters: AllowDoxygenCommentStyle.
 Layout/LeadingCommentSpace:
   Exclude:
-    - 'app/controllers/account_activations_controller.rb'
-    - 'app/controllers/password_resets_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/controllers/tops_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/sessions_helper.rb'
-    - 'app/models/user.rb'
-    - 'config/environments/production.rb'
+    # - 'app/controllers/account_activations_controller.rb'
+    # - 'app/controllers/password_resets_controller.rb'
+    # - 'app/controllers/sessions_controller.rb'
+    # - 'app/controllers/tops_controller.rb'
+    # - 'app/controllers/users_controller.rb'
+    # - 'app/helpers/sessions_helper.rb'
+    # - 'app/models/user.rb'
+    # - 'config/environments/production.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.

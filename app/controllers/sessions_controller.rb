@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password]) #authenticateでuserを確認
-      if user.activated? #有効化がされているかどうか
+    if user && user.authenticate(params[:session][:password]) # authenticateでuserを確認
+      if user.activated? # 有効化がされているかどうか
         log_in user 
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         flash[:success] = "ログイン成功しました"
