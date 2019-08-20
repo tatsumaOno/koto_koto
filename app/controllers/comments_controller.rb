@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :get_service, only: [:create]
+  before_action :find_service, only: [:create]
   def create
     @comment = Comment.new(new_comment)
     if @comment.save
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def get_service
+  def find_service
     @service = Service.find(params[:service_id])
   end
 
