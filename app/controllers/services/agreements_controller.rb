@@ -14,7 +14,7 @@ class Services::AgreementsController < ApplicationController
 
   def update
     @service = Service.find(params[:service_id])
-    @room = Room.find(params[:id]) 
+    @room = Room.find(params[:id])
     if @service && @room.activated == true
       @service.contract_status
       @room.change_activated

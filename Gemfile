@@ -45,7 +45,7 @@ group :development, :test do
   gem 'rspec-expectations', '~> 3.8', '<= 3.8.2'
   gem 'capistrano'
   gem 'capistrano-rbenv'
-  gem 'capistrano-bundler' 
+  gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rubocop', require: false
@@ -84,5 +84,5 @@ gem 'webpacker', github: 'rails/webpacker'
 gem 'foreman'
 gem 'rails-i18n'
 gem "aws-sdk-s3", require: false
-gem 'seed-fu'  
+gem 'seed-fu'
 gem 'payjp'

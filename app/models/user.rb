@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password,             presence: true, length: { minimum: 6 }, allow_nil: true
   validates :password_confirmation, presence: true, allow_nil: true
   validates :introduction, length: { maximum: 200 }
-  
+
   has_secure_password # セキュアなパスワードを作成 password_digestカラム gem bcrypt
   has_one_attached :image # activeStorage
   has_many :services, dependent: :destroy
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :room_users
   has_many :rooms,    through: :room_users
   has_many :messages, dependent: :destroy
-  
+
   attr_accessor :remember_token, :activation_token, :reset_token, :support_point, :satisfaction_point
 
   before_save :downcase_email
@@ -88,7 +88,7 @@ class User < ApplicationRecord
   end
 
   private
-  
+
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)

@@ -2,7 +2,7 @@ module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id # このsessionは作成したsessionとは別物
   end
-  
+
   # 記憶する時の処理
   def remember(user)
     user.remember # remember_tokenとremember_digestを作成
@@ -10,12 +10,12 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token # remember_tokenに期限を保存
   end
 
-  # 現在のユーザー 
+  # 現在のユーザー
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id]) # cookieの暗号化を解いている
-      user = User.find_by(id: user_id) 
+      user = User.find_by(id: user_id)
       if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user

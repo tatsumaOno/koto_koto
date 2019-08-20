@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :cards
-  
+
   resources :rooms do
     resources :messages, only: [:index, :create, :destroy]
     resources :evaluates, only: [:new, :create], module: 'rooms'

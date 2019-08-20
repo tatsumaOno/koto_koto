@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 describe User do
   describe '#create' do
     before do
@@ -16,7 +16,7 @@ describe User do
         @user.name = ""
         @user.valid?
         expect(@user.errors[:name]).to include("を入力してください")
-      end 
+      end
       it "名前が50文字以上" do
         @user.name = 'a' * 51
         @user.valid?

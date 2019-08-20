@@ -12,11 +12,11 @@ class CommentsController < ApplicationController
   end
 
   private
-  
+
   def get_service
     @service = Service.find(params[:service_id])
   end
-    
+
   def new_comment
     params.require(:comment).permit(:detail).merge(user_id: current_user.id, service_id: @service.id)
   end
