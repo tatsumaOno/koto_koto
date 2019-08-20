@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit,:update]
-  before_action :valid_user, only: [:edit,:update]
-  before_action :check_expiration,only: [:edit,:update]
+  before_action :get_user, only: [:edit, :update]
+  before_action :valid_user, only: [:edit, :update]
+  before_action :check_expiration, only: [:edit, :update]
 
   def new
   end
@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:user][:password].empty?
-      @user.errors.add(:password,:blank)
+      @user.errors.add(:password, :blank)
       render :edit
     elsif @user.update_attributes(reset_params)
       log_in @user
@@ -38,7 +38,7 @@ class PasswordResetsController < ApplicationController
   private
 
   def reset_params
-    params.require(:user).permit(:password,:password_confirmation)
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
   def get_user
@@ -47,7 +47,7 @@ class PasswordResetsController < ApplicationController
     
   # 有効なユーザーか確認
   def valid_user
-    unless(@user && @user.activated? && @user.authenticated?(:reset,params[:id]))
+    unless(@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
       redirect_to root_path
     end
   end

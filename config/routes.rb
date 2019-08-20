@@ -15,20 +15,20 @@ Rails.application.routes.draw do
       post :demand_create
       post :supply_create
     end
-    resources :agreements, only: [:create,:update], module: 'services'
-    resources :comments,only: [:create]
+    resources :agreements, only: [:create, :update], module: 'services'
+    resources :comments, only: [:create]
   end
 
   resources :cards
   
   resources :rooms do
-    resources :messages,only: [:index,:create,:destroy]
-    resources :evaluates, only: [:new,:create], module: 'rooms'
+    resources :messages, only: [:index, :create, :destroy]
+    resources :evaluates, only: [:new, :create], module: 'rooms'
   end
 
-  resources :account_activations,only: [:edit]
-  resources :password_resets,only: [:new,:create,:edit,:update]
-  get '/login',to: 'sessions#new'
-  post '/login',to: 'sessions#create'
-  delete '/logout',to: 'sessions#destroy'
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end

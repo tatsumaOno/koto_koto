@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-	 before_action :set_payjp,only: [:index,:destroy]
+	 before_action :set_payjp, only: [:index, :destroy]
 	 include CardsHelper
 
 	 def index
@@ -11,7 +11,7 @@ class CardsController < ApplicationController
 
 	 def create
  		 create_customer(current_user)
- 		 @card = Card.new(user_id: current_user.id,customer_id: @customer.id,card_id: @customer.default_card)
+ 		 @card = Card.new(user_id: current_user.id, customer_id: @customer.id, card_id: @customer.default_card)
  		 if @card.save
   			 redirect_to current_user
   			 flash[:success] = "カード情報を登録しました"

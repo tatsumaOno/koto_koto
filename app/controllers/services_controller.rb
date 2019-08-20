@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
-  before_action :logged_in_user,only: [:demand,:demand_create,:supply,:supply_create,:show,:edit,:update,:destroy] 
-  before_action :correct_user,only: [:demand,:demand_create,:supply,:supply_create,:edit,:update,:destroy]
-  before_action :find_service,only: [:show,:edit,:update,:destroy]
+  before_action :logged_in_user, only: [:demand, :demand_create, :supply, :supply_create, :show, :edit, :update, :destroy] 
+  before_action :correct_user, only: [:demand, :demand_create, :supply, :supply_create, :edit, :update, :destroy]
+  before_action :find_service, only: [:show, :edit, :update, :destroy]
 
   def demand
     @service = Service.new()
@@ -65,6 +65,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:image,:title,:detail,:price,:time,:work,:area_id,:category_id).merge(user_id: current_user.id)
+    params.require(:service).permit(:image, :title, :detail, :price, :time, :work, :area_id, :category_id).merge(user_id: current_user.id)
   end
 end

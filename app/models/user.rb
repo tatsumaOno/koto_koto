@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 	 VALID_EMAIL_REGEX = /([\w+\-.]+)@[a-z\d]+\.[a-z]{2,3}/i
-	 validates :name,                 presence: true,length: {maximum: 50}
-	 validates :nickname,             presence: true,length: {maximum: 30}
-	 validates :email,                presence: true,length: {maximum: 100},format: {with: VALID_EMAIL_REGEX},uniqueness: true
-	 validates :password,             presence: true,length: {minimum: 6},allow_nil: true
-	 validates :password_confirmation,presence: true,allow_nil: true
+	 validates :name,                 presence: true, length: {maximum: 50}
+	 validates :nickname,             presence: true, length: {maximum: 30}
+	 validates :email,                presence: true, length: {maximum: 100}, format: {with: VALID_EMAIL_REGEX}, uniqueness: true
+	 validates :password,             presence: true, length: {minimum: 6}, allow_nil: true
+	 validates :password_confirmation, presence: true, allow_nil: true
 	 validates :introduction, length: {maximum: 200}
 	
 	 has_secure_password # セキュアなパスワードを作成 password_digestカラム gem bcrypt
@@ -16,14 +16,14 @@ class User < ApplicationRecord
 	 has_many :rooms,    through: :room_users
 	 has_many :messages, dependent: :destroy
 	
-	 attr_accessor :remember_token,:activation_token,:reset_token,:support_point,:satisfaction_point
+	 attr_accessor :remember_token, :activation_token, :reset_token, :support_point, :satisfaction_point
 
 	 before_save :downcase_email
 	 before_create :create_activation_digest
 
 	 def self.digest(string)
  		 cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
- 		 BCrypt::Password.create(string,cost: cost)
+ 		 BCrypt::Password.create(string, cost: cost)
  	end
 
 	 # トークンを作成
@@ -34,10 +34,10 @@ class User < ApplicationRecord
 	 # remember_token&remember_digestを作成
 	 def remember
  		 self.remember_token = User.new_token # 新しいトークンを作る
- 		 update_attribute(:remember_digest,User.digest(remember_token))
+ 		 update_attribute(:remember_digest, User.digest(remember_token))
  	end
 
-	 def authenticated?(attribute,token)
+	 def authenticated?(attribute, token)
  		 digest = self.send("#{attribute}_digest") # send(:remember_digest)
  		 return false if digest.nil?
 
@@ -45,14 +45,14 @@ class User < ApplicationRecord
  	end
 
 	 def forget
- 		 update_attribute(:remember_digest,nil)
+ 		 update_attribute(:remember_digest, nil)
  	end
 
 	 # パスワードの再設定の属性を設定する
 	 def create_reset_digest
  		 self.reset_token = User.new_token
  		 update_attribute(:reset_digest, User.digest(reset_token))
- 		 update_attribute(:reset_sent_at,Time.zone.now)
+ 		 update_attribute(:reset_sent_at, Time.zone.now)
  	end
 
 	 def send_password_reset_email
@@ -63,7 +63,7 @@ class User < ApplicationRecord
  		 reset_sent_at < 2.hours.ago
  	end
 
-	 def place_value(support,satisfaction)
+	 def place_value(support, satisfaction)
  		 self.support_point = support.to_i
  		 self.satisfaction_point = satisfaction.to_i
  	end

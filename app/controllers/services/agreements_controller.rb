@@ -1,13 +1,13 @@
 class Services::AgreementsController < ApplicationController
-	 before_action :have_a_card,only: [:create]
+	 before_action :have_a_card, only: [:create]
 	 def create
  		 @service = Service.find(params[:service_id])
  		 if @card && @service.work == 'supply'
   			 @customer = @card.set_customer
-  			 Card.create_charge(@customer,@service)
+  			 Card.create_charge(@customer, @service)
   		end
  		 @service.contract_status
- 		 Room.create_room(@service,current_user)
+ 		 Room.create_room(@service, current_user)
  		 redirect_to current_user
  		 flash[:success] = "購入が完了しました。チャットルームを作成しましたので、連絡を取り合いましょう"
  	end

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	 before_action :get_service,only: [:create]
+	 before_action :get_service, only: [:create]
 	 def create
  		 @comment = Comment.new(new_comment)
  		 if @comment.save
@@ -18,6 +18,6 @@ class CommentsController < ApplicationController
  	end
 	  
 	 def new_comment
- 		 params.require(:comment).permit(:detail).merge(user_id: current_user.id,service_id: @service.id)
+ 		 params.require(:comment).permit(:detail).merge(user_id: current_user.id, service_id: @service.id)
  	end
 end

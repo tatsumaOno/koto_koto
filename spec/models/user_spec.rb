@@ -8,7 +8,8 @@ describe User do
    					email: "test10@gmail.com",
    					password: "1234567",
    					password_confirmation: "1234567",
-   					activated: "1")
+   					activated: "1"
+      )
   		end
  		 context "名前" do
   			 it "名前なし" do
@@ -44,7 +45,7 @@ describe User do
    			end
   			 it "アドレス被り" do
    				 user = create(:user)
-   				 another_user = build(:user,password: "9876543",password_confirmation: "9876543")
+   				 another_user = build(:user, password: "9876543", password_confirmation: "9876543")
    				 another_user.valid?
    				 expect(another_user.errors[:email]).to include("はすでに存在します")
    			end
