@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user,only: [:edit,:update,:discord] 
-  before_action :correct_user,only: [:show,:edit,:update,:discord,:destroy]
+  before_action :logged_in_user, only: [:edit, :update, :discord]
+  before_action :correct_user, only: [:show, :edit, :update, :discord, :destroy]
 
   def new
     @user = User.new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(new_user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      #有効化
+      # 有効化
       flash[:warning] = "メールをご確認して有効にしてください"
       redirect_to root_path
     else
@@ -56,14 +56,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
-    def new_user_params
-      params.require(:user).permit(:name,:nickname,:email,:password,:password_confirmation)
-    end
+  def new_user_params
+    params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
+  end
 
-    def edit_user_params
-      params.require(:user).permit(:name,:nickname,:email,:introduction,:image)
-    end
+  def edit_user_params
+    params.require(:user).permit(:name, :nickname, :email, :introduction, :image)
+  end
 end

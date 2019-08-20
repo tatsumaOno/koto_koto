@@ -1,10 +1,10 @@
 class ServicesController < ApplicationController
-  before_action :logged_in_user,only: [:demand,:demand_create,:supply,:supply_create,:show,:edit,:update,:destroy] 
-  before_action :correct_user,only: [:demand,:demand_create,:supply,:supply_create,:edit,:update,:destroy]
-  before_action :find_service,only: [:show,:edit,:update,:destroy]
+  before_action :logged_in_user, only: [:demand, :demand_create, :supply, :supply_create, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:demand, :demand_create, :supply, :supply_create, :edit, :update, :destroy]
+  before_action :find_service, only: [:show, :edit, :update, :destroy]
 
   def demand
-    @service = Service.new()
+    @service = Service.new
   end
 
   def demand_create
@@ -18,7 +18,7 @@ class ServicesController < ApplicationController
   end
 
   def supply
-    @service = Service.new()
+    @service = Service.new
   end
 
   def supply_create
@@ -31,8 +31,8 @@ class ServicesController < ApplicationController
     end
   end
 
-  def show 
-    @comment = Comment.new()
+  def show
+    @comment = Comment.new
     @comments = Comment.includes(:user).where(service_id: @service.id).recent(10)
   end
 
@@ -58,12 +58,13 @@ class ServicesController < ApplicationController
     end
   end
 
-private
-    def find_service
-      @service = Service.find(params[:id])
-    end
+  private
 
-    def service_params
-      params.require(:service).permit(:image,:title,:detail,:price,:time,:work,:area_id,:category_id).merge(user_id: current_user.id)
-    end
+  def find_service
+    @service = Service.find(params[:id])
+  end
+
+  def service_params
+    params.require(:service).permit(:image, :title, :detail, :price, :time, :work, :area_id, :category_id).merge(user_id: current_user.id)
+  end
 end
