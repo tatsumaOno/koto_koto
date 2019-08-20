@@ -23,3 +23,12 @@ Style/StringLiterals:
 
 Metrics/LineLength:
   Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
