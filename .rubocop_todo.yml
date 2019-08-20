@@ -81,12 +81,6 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 18
 
-# Offense count: 2
-# Naming/AccessorMethodName:
-#   Exclude:
-#     - 'app/controllers/comments_controller.rb'
-#     - 'app/controllers/password_resets_controller.rb'
-
 # Offense count: 1
 # Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist, MethodDefinitionMacros.
 # NamePrefix: is_, has_, have_
@@ -100,16 +94,16 @@ Naming/PredicateName:
 
 # Offense count: 25
 # Configuration parameters: AllowedChars.
-Style/AsciiComments:
-  Exclude:
-    - 'app/controllers/account_activations_controller.rb'
-    - 'app/controllers/password_resets_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/controllers/tops_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/sessions_helper.rb'
-    - 'app/models/user.rb'
-    - 'config/environments/production.rb'
+# Style/AsciiComments:
+#   Exclude:
+#     - 'app/controllers/account_activations_controller.rb'
+#     - 'app/controllers/password_resets_controller.rb'
+#     - 'app/controllers/sessions_controller.rb'
+#     - 'app/controllers/tops_controller.rb'
+#     - 'app/controllers/users_controller.rb'
+#     - 'app/helpers/sessions_helper.rb'
+#     - 'app/models/user.rb'
+#     - 'config/environments/production.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

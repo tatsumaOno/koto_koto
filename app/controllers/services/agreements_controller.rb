@@ -1,5 +1,5 @@
 class Services::AgreementsController < ApplicationController
-  before_action :have_a_card, only: [:create]
+  before_action :have_card, only: [:create]
   def create
     @service = Service.find(params[:service_id])
     if @card && @service.work == 'supply'
@@ -26,7 +26,7 @@ class Services::AgreementsController < ApplicationController
 
   private
 
-  def have_a_card
+  def have_card
     @card = Card.find_by(user_id: current_user.id)
     if @card == nil
       redirect_to current_user
