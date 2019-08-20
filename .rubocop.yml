@@ -1,3 +1,18 @@
 inherit_from: .rubocop_todo.yml
 AsciiComments:
   Enabled: false
+
+BracesAroundHashParameters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

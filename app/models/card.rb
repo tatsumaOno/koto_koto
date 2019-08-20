@@ -4,9 +4,9 @@ class Card < ApplicationRecord
   def self.create_charge(customer, service)
     Payjp.api_key = ENV["PAYJP_KEY"]
     Payjp::Charge.create(
-      :amount => service.price,
-      :customer => customer,
-      :currency => 'jpy',
+      amount: service.price,
+      customer: customer,
+      currency: 'jpy',
     )
   end
 
