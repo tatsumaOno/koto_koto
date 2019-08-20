@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :discord]
-  before_action :correct_user, only: [:show, :edit, :update, :discord, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :discard, :destroy]
 
   def new
     @user = User.new
