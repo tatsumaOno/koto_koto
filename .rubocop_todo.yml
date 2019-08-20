@@ -122,18 +122,6 @@ Style/GuardClause:
     - 'app/controllers/password_resets_controller.rb'
     - 'app/controllers/services/agreements_controller.rb'
 
-# Offense count: 219
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-# Style/HashSyntax:
-#   Exclude:
-#     - 'app/models/card.rb'
-#     - 'db/fixtures/development/01_area.rb'
-#     - 'db/fixtures/development/02_category.rb'
-#     - 'db/fixtures/production/01_area.rb'
-#     - 'db/fixtures/production/02_category.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
@@ -143,10 +131,10 @@ Style/IfUnlessModifier:
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoredMethods.
-Style/MethodCallWithoutArgsParentheses:
-  Exclude:
-    - 'app/controllers/messages_controller.rb'
-    - 'app/controllers/services_controller.rb'
+# Style/MethodCallWithoutArgsParentheses:
+#   Exclude:
+#     - 'app/controllers/messages_controller.rb'
+#     - 'app/controllers/services_controller.rb'
 
 # Offense count: 2
 Style/MixinUsage:

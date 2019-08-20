@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   before_action :find_service, only: [:show, :edit, :update, :destroy]
 
   def demand
-    @service = Service.new()
+    @service = Service.new
   end
 
   def demand_create
@@ -18,7 +18,7 @@ class ServicesController < ApplicationController
   end
 
   def supply
-    @service = Service.new()
+    @service = Service.new
   end
 
   def supply_create
@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @comment = Comment.new()
+    @comment = Comment.new
     @comments = Comment.includes(:user).where(service_id: @service.id).recent(10)
   end
 

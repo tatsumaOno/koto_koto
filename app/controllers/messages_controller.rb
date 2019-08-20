@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_room
   def index
-    @message = Message.new()
+    @message = Message.new
     @messages = @room.messages.includes(:user).recent(20)
   end
 
