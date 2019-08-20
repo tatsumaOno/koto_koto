@@ -10,9 +10,9 @@
 # Cop supports --auto-correct.
 # Configuration parameters: TreatCommentsAsGroupSeparators, Include.
 # Include: **/*.gemfile, **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
+# Bundler/OrderedGems:
+#   Exclude:
+#     - 'Gemfile'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -128,14 +128,6 @@ Style/IfUnlessModifier:
   Exclude:
     - 'app/controllers/password_resets_controller.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoredMethods.
-# Style/MethodCallWithoutArgsParentheses:
-#   Exclude:
-#     - 'app/controllers/messages_controller.rb'
-#     - 'app/controllers/services_controller.rb'
-
 # Offense count: 2
 Style/MixinUsage:
   Exclude:
@@ -205,27 +197,12 @@ Style/StderrPuts:
   Exclude:
     - 'bin/yarn'
 
-# Offense count: 388
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Enabled: false
-
 # Offense count: 16
 # Cop supports --auto-correct.
 # Configuration parameters: MinSize.
 # SupportedStyles: percent, brackets
 Style/SymbolArray:
   EnforcedStyle: brackets
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInArguments:
-  Exclude:
-    - 'app/models/card.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -242,10 +219,3 @@ Style/WordArray:
 Style/YodaCondition:
   Exclude:
     - 'app/models/user.rb'
-
-# Offense count: 72
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Metrics/LineLength:
-  Max: 145

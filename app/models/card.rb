@@ -6,7 +6,7 @@ class Card < ApplicationRecord
     Payjp::Charge.create(
       amount: service.price,
       customer: customer,
-      currency: 'jpy',
+      currency: 'jpy'
     )
   end
 
