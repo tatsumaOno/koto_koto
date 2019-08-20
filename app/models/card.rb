@@ -1,6 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
-
+  
   def self.create_charge(customer, service)
     Payjp.api_key = ENV["PAYJP_KEY"]
     Payjp::Charge.create(
