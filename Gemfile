@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -10,8 +10,8 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-# gem 'sassc-rails'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -66,8 +66,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # gem 'webdrivers'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  # gem 'chromedriver-helper'
 end
 
 group :production do
@@ -76,8 +76,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "aws-sdk-s3", require: false
-# gem 'bcrypt', '~> 3.1', '>= 3.1.13'
-gem 'bcrypt', '<= 3.1.12'
+gem 'bcrypt', '~> 3.1', '>= 3.1.13'
+# gem 'bcrypt', '<= 3.1.12'
 gem 'font-awesome-sass'
 gem 'foreman'
 gem 'jquery-rails'
