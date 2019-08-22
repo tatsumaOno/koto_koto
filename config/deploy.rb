@@ -7,7 +7,7 @@ set :repo_url, "git@github.com:tatsumaOno/koto_koto.git"
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.5.1'
+set :rbenv_ruby, '2.6.2'
 
 set :ssh_options, auth_methods: ['publickey'],
           keys: ['~/.ssh/koto_kotopair.pem']
