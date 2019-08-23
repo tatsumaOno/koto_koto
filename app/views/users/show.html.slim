@@ -52,7 +52,7 @@
 				= render 'under_contract', rooms: @rooms
 			</div>
 			<div class ="mypage_sec_l_tablelist" v-else-if="isActive === '4'" v-bind:class="{'show': isActive === '4'}">
-				= render 'finish_contract', services: @finish_services
+				= render 'finish_contract', rooms: @finish_rooms
 			</div>
 = render partial: 'parts/footer'
 = javascript_pack_tag "hello_vue"
