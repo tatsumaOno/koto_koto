@@ -1,9 +1,9 @@
-- services.each do |service|
+- rooms.each do |room|
 	article
 		= user_show_image(current_user)
 		.article_body
 			.article_body_info
 				p 
-					= simple_time(service.created_at)
+					= simple_time(room.updated_at)
 			.article_body_title
-				p #{service.title}
+				p #{room.name}
