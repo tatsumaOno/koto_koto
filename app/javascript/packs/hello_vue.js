@@ -7,7 +7,7 @@
 
 // import Vue from 'vue'
 import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
+import Modal from '../modal.vue'
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -18,17 +18,24 @@ import Vue from 'vue/dist/vue.esm'
 
   // console.log(app)
   new Vue({
-    el: '.mypage_sec_l',
+    el: '.mypage',
+    // components: {
+    //   'modal': Modal
+    // },
     data: {
-      isActive: '1'
+      isActive: '1',
+      modal: false
     },
     methods: {
       change: function(num){
         this.isActive = num,
         console.log(this.isActive)
+      },
+      openModal(){
+        this.modal = true
       }
     }
-  })
+  });
 // })
 
 
