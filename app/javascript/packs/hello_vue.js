@@ -18,9 +18,6 @@ import Vue from 'vue/dist/vue.esm'
   // console.log(app)
   new Vue({
     el: '.mypage',
-    // components: {
-    //   'modal': Modal
-    // },
     data: {
       isActive: '1',
       modal: false
