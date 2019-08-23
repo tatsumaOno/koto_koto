@@ -10,6 +10,14 @@ class Card < ApplicationRecord
     )
   end
 
+  def self.create_customer(user,payjp_token)
+    Payjp.api_key = ENV["PAYJP_KEY"]
+    @customer = Payjp::Customer.create(
+      email: user.email,
+      card: payjp_token
+    )
+  end
+
   def set_customer
     Payjp.api_key = ENV["PAYJP_KEY"]
     Payjp::Customer.retrieve(self.customer_id)
