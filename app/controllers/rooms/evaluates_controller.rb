@@ -9,6 +9,7 @@ class Rooms::EvaluatesController < ApplicationController
       @rated_user.place_value(params[:support], params[:satisfaction])
       @rated_user.create_confidence_score
       @rated_user.create_point
+      # @room.change_activated
       redirect_to root_path
       flash[:success] = "評価できました。"
     else

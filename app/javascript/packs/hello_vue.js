@@ -7,7 +7,6 @@
 
 // import Vue from 'vue'
 import Vue from 'vue/dist/vue.esm'
-import Modal from '../modal.vue'
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -33,6 +32,9 @@ import Modal from '../modal.vue'
       },
       openModal(){
         this.modal = true
+      },
+      closeModal(){
+        this.modal = false
       }
     }
   });
