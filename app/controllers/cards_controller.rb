@@ -10,7 +10,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @customer = Card.create_customer(current_user,@payjp_token = params['payjp-token'])
+    @customer = Card.create_customer(current_user, @payjp_token = params['payjp-token'])
     @card = Card.new(user_id: current_user.id, customer_id: @customer.id, card_id: @customer.default_card)
     if @card.save
       redirect_to current_user
