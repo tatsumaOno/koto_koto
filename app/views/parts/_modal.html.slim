@@ -1,35 +1,51 @@
 <div class="modal" v-if="modal">
 	<div class="modal modal-overlay">
 		<div class="modal-window">
-			<div class="modal-content">
-				= form_with url: room_evaluates_path(room),local: true do |f|
-					<button class="modal-default-button" @click="closeModal">OK</button>
+			= form_with url: room_evaluates_path(room),local: true do |f|
+				<button class="modal-default-button" @click="closeModal">✖️</button>
+				<div class="modal-content">
+					p 対応が良かったか
+					.evaluate_form	
+						= f.radio_button :support,1,id: "radio1"
+						= f.label "1",for: "radio1",class: "radio_label"
+
+						
+						= f.radio_button :support,2,id: "radio2"
+						= f.label "2",for: "radio2",class: "radio_label"
+
+						
+						= f.radio_button :support,3,id: "radio3"
+						= f.label "3",for: "radio3",class: "radio_label"
+
+						
+						= f.radio_button :support,4,id: "radio4"
+						= f.label "4",for: "radio4",class: "radio_label"
+
+						
+						= f.radio_button :support,5,id: "radio5"
+						= f.label "5",for: "radio5",class: "radio_label"
+					p 満足できましたか
 					.evaluate_form
-						p 対応が良かったか
-						= f.radio_button :support,1
-						| 　1
-						= f.radio_button :support,2
-						| 　2
-						= f.radio_button :support,3
-						| 　3
-						= f.radio_button :support,4
-						| 　4
-						= f.radio_button :support,5
-						| 　5
-					.evaluate_form
-						p 満足できましたか
-						= f.radio_button :satisfaction,1
-						| 　1
-						= f.radio_button :satisfaction,2
-						| 　2
-						= f.radio_button :satisfaction,3
-						| 　3
-						= f.radio_button :satisfaction,4
-						| 　4
-						= f.radio_button :satisfaction,5
-						| 　5
-					= f.submit "送信"
-			</div>
+						= f.radio_button :satisfaction,1,id: "radio6"
+						= f.label "1",for: "radio6",class: "radio_label"
+
+						
+						= f.radio_button :satisfaction,2,id: "radio7"
+						= f.label "2",for: "radio7",class: "radio_label"
+
+						
+						= f.radio_button :satisfaction,3,id: "radio8"
+						= f.label "3",for: "radio8",class: "radio_label"
+
+						
+						= f.radio_button :satisfaction,4,id: "radio9"
+						= f.label "4",for: "radio9",class: "radio_label"
+
+						
+						= f.radio_button :satisfaction,5,id: "radio10"
+						= f.label "5",for: "radio10",class: "radio_label"
+					= f.submit "送信",class: "modal-submit"
+				</div>
 		</div>
 	</div>
 </div>
