@@ -7,6 +7,12 @@
 					= simple_time(room.created_at)
 			.article_body_title
 				= link_to "#{room.name}のチャットルーム",room_messages_path(room)
-		.article_fin
+		/ .article_fin
+		/ 	- if room.rated_user != current_user.id
+		/ 		= link_to "完了にする",service_agreement_path(room.find_service_id,room),method: :put
+		<div class="article_fin">
 			- if room.rated_user != current_user.id
-				= link_to "完了にする",service_agreement_path(room.find_service_id,room),method: :put
+				/ = link_to "完了にする",service_agreement_path(room.find_service_id,room),method: :put
+				<a @click="openModal">完了する</a>
+		</div>
+	= render partial: "parts/modal", locals: {room: room}
