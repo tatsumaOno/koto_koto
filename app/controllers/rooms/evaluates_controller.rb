@@ -1,8 +1,4 @@
 class Rooms::EvaluatesController < ApplicationController
-  def new
-    @room = Room.find(params[:room_id])
-  end
-
   def create
     @room = Room.find(params[:room_id])
     if @rated_user = User.find_by(id: @room.rated_user)
