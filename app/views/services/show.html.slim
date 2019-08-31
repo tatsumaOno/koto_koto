@@ -60,8 +60,7 @@
 					= @service.user.nickname
 				.myservice_contents_user_sec_intro
 					h5 自己紹介
-					p
-						= @service.user.introduction
+					= simple_format @service.user.introduction
 		.myservice_contents_comment.uk-width-2-3
 			h2 公開コメント
 			.myservice_contents_comment_title
