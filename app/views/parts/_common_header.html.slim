@@ -4,20 +4,20 @@
 			.uk-navbar-center-left
 				ul.uk-navbar-nav
 					li
-						= link_to "supply",supply_services_path,class:"roll-button button_blue"
+						= link_to "お困り",supply_services_path,class:"roll-button button_blue"
 					li
-						= link_to "demand",demand_services_path,class:"roll-button button_purple"
+						= link_to "スキル",demand_services_path,class:"roll-button button_purple"
 					li 
-						= link_to "cash",cards_path,class: "roll-button button_orange"
+						= link_to "クレジット",cards_path,class: "roll-button button_orange"
 			= link_to "KotoKoto",root_path,class:"uk-navbar-item uk-logo"
 			.uk-navbar-center-right
 				ul.uk-navbar-nav
 					li
-						= link_to "logout",logout_path,method: :delete,class:"roll-button button_red"
+						= link_to "ログアウト",logout_path,method: :delete,class:"roll-button button_red"
 					li
-						= link_to "mypage",current_user,class: "roll-button button_yellow"
+						= link_to "マイページ",current_user,class: "roll-button button_yellow"
 					li
-						= link_to "edit",edit_user_path(current_user),class: "roll-button button_green button_edit"
+						= link_to "編集",edit_user_path(current_user),class: "roll-button button_green button_edit"
 		- else
 			.uk-navbar-center-left
 				ul.uk-navbar-nav
