@@ -1,11 +1,15 @@
 = render 'parts/error_messages',model: f.object
 .service_page_r_form
 h4 イメージ画像
+/ .service_page_r_form_image
+/ 	= f.label :image
+/ 		i.far.fa-file-image
+/ 	= f.file_field :image
+/ 	small 写真を１枚アップロードしてください。
 .service_page_r_form_image
-	= f.label :image
-		i.far.fa-file-image
-	= f.file_field :image
-	small 写真を１枚アップロードしてください。
+  = f.label :image , "v-bind:style" => "{ backgroundImage: 'url(' + uploadedImage + ')',backgroundSize: '100% 300px' }"
+	i.far.fa-file-image
+  = f.file_field :image , "v-on:change" => "onFileChange($event)"
 .service_page_r_form
 h4 タイトル
 .service_page_r_form_title
@@ -46,3 +50,4 @@ h4 所要時間
 	.service_page_r_form
 		.service_page_r_form_button
 			= f.submit "保存する",class: "mypage_sec_edit_form_button_submit"
+= javascript_pack_tag "file_preview"
