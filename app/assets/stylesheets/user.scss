@@ -19,8 +19,11 @@
 			}
 			&_introduction{
 				@include side_border;
-				height: 150px;
+				min-height: 150px;
 				word-wrap: break-word;
+				p {
+					font-size: 12px;
+				}
 			}
 			&_edit{
 				@include side_border;

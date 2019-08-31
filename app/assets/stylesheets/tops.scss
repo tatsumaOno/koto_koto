@@ -1,5 +1,8 @@
 @import "mixin";
 //header
+.flash_message{
+	text-align: center;
+}
 .uk-position-relative{
 	background: #000;
 	img{
@@ -134,22 +137,26 @@
 	}
 	.button_red{
 		background-color: rgba(255,0,0,0.9);
+		padding: 0 10px;
 	}
 	.button_yellow{
 		background-color: rgba(255,255,0,0.9);
+		padding: 0 10px;
 	}
 	.button_green{
 		background-color: rgba(0,128,0,0.9);
 	}
 	.button_blue{
 		background-color: rgba(65, 105, 225,0.9);
+		padding: 0 23px;
 	}
 	.button_purple{
 		background-color: rgba(139, 0, 139,0.9);
+		padding: 0 25px;
 	}
 	.button_orange{
 		background-color: rgba(255,133,0,0.9);
-		padding: 0 25px;
+		padding: 0 10px;
 	}
 	.button_edit{
 		padding: 0 30px;
