@@ -2,7 +2,7 @@
 = render partial: "parts/flash"
 .form_wrapper
   .form_fadeout
-    h2 Log in
+    h2 ログイン
     = form_for(:session,url:login_path) do |f|
 		.field
 			= f.label :email
@@ -18,8 +18,7 @@
 					= f.check_box :remember_me
 				p Remember me on this computer
 		.actions
-			= f.submit "Log in",class: "button"
-			p  New user?
+			= f.submit "ログイン",class: "button"
 			p
-				= link_to "Sign up now!",new_user_path
+				= link_to "新規登録画面へ",new_user_path
 = render partial: 'parts/footer'
