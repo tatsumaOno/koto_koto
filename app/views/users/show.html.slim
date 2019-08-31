@@ -12,7 +12,7 @@
 			.mypage_sec_r_introduction
 				h6 自己紹介
 				p 
-					= current_user.introduction
+					= simple_format current_user.introduction
 			.mypage_sec_r_edit
 				= link_to edit_user_path(current_user) do
 					i.far.fa-address-card
