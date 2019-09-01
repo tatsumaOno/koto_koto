@@ -47,7 +47,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   Rails.application.configure do
     config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.default_url_options = { host: "52.196.248.230" }
+    config.action_mailer.default_url_options = { host: "kotokoto-app.com" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
